@@ -1,28 +1,30 @@
-2024-10-26 19:31:36,156 - INFO - Total URLs: 9
-2024-10-26 19:31:36,393 - INFO - 1. Believe / 4.05.2021, 13:49 / https://itorrents-igruha.org/8095-believe.html
-2024-10-26 19:31:36,649 - ERROR - DEAD_TORRENT: "Invalid token character (b'\\n') at position 0."
-2024-10-26 19:31:36,650 - INFO -     No download options
-2024-10-26 19:31:36,776 - INFO - 2. (CACHE) Sailing Era / 12.09.2023, 14:10 / https://itorrents-igruha.org/14496-sailing-era.html
-2024-10-26 19:31:36,776 - INFO -     Sailing Era (Build 12153123) | P2P / 2023-09-12T14:10:00Z / 6.54 GB
-2024-10-26 19:31:37,006 - INFO - 3. (CACHE) \u0410\u0441\u0441\u0430\u0441\u0438\u043d \u041a\u0440\u0438\u0434 \u0412\u0430\u043b\u044c\u0433\u0430\u043b\u043b\u0430 / 7.01.2024, 22:01 / https://itorrents-igruha.org/3671-1-126821717.html
-2024-10-26 19:31:37,006 - INFO -     Assassin's Creed Valhalla | RePack \u043e\u0442 Igruha / 2023-04-14T23:14:23Z / 67.62 GB
-2024-10-26 19:31:37,213 - INFO - 4. (CACHE) \u0420\u0435\u0437\u0438\u0434\u0435\u043d\u0442 \u0418\u0432\u0435\u043b 4 \u0420\u0435\u043c\u0435\u0439\u043a (2023) / 15.03.2021, 14:53 / https://itorrents-igruha.org/11642-8-99980.html
-2024-10-26 19:31:37,213 - INFO -     Resident Evil 4 Remake (2023) | RePack \u043e\u0442 Igruha / 2023-05-16T15:51:59Z / 51.23 GB
-2024-10-26 19:31:37,352 - INFO - 5. (CACHE) Muse Dash / 25.10.2024, 22:27 / https://itorrents-igruha.org/7793-muse-dash.html
-2024-10-26 19:31:37,352 - INFO -     Muse Dash v4.9 (Build 15852759) | Portable / 2024-10-25T22:21:54Z / 3.50 GB
-2024-10-26 19:31:37,539 - INFO - 6. (CACHE) Metaphor: ReFantazio / 19.10.2024, 20:17 / https://itorrents-igruha.org/15285-metaphor-refantazio.html
-2024-10-26 19:31:37,540 - INFO -     Metaphor: ReFantazio | RePack \u043e\u0442 Igruha / 2024-10-20T04:06:32Z / 29.49 GB
-2024-10-26 19:31:37,666 - INFO - 7. (CACHE) Witchfire / 23.10.2024, 07:29 / https://itorrents-igruha.org/2576-witchfire.html
-2024-10-26 19:31:37,666 - INFO -     Witchfire | RePack \u043e\u0442 Igruha / 2024-04-16T05:45:17Z / 25.66 GB
-2024-10-26 19:31:37,666 - INFO -     Witchfire v0.4.6 (Build 16140198) | Portable / 2024-10-23T00:46:50Z / 31.83 GB
-2024-10-26 19:31:37,855 - INFO - 8. (CACHE) Eld\u0435n Ring / 17.10.2024, 14:07 / https://itorrents-igruha.org/3821-126821717.html
-2024-10-26 19:31:37,855 - INFO -     Elden Ring | RePack \u043e\u0442 Igruha / 2024-09-13T05:17:49Z / 61.04 GB
-2024-10-26 19:31:37,855 - INFO -     Elden Ring v1.16.0 (Build 15950357) | Portable / 2024-10-17T13:53:41Z / 68.29 GB
-2024-10-26 19:31:38,011 - INFO - 9. (CACHE) Windblown / 26.10.2024, 14:43 / https://itorrents-igruha.org/16170-windblown.html
-2024-10-26 19:31:38,011 - INFO -     Windblown v0.1.1 (Build 16183152) | Portable / 2024-10-26T14:43:00Z / 2.58 GB
-2024-10-26 19:31:38,240 - INFO - Total Updated Games: 0
-2024-10-26 19:31:38,240 - INFO - Total Download Options: 10
-2024-10-26 19:31:38,240 - INFO - Total Pages with no download options: 1
-2024-10-26 19:31:38,240 - INFO - Total Invalid Pages: 0
-2024-10-26 19:31:38,241 - INFO - The data is saved in file hydra_links_igruha.json
-2024-10-26 19:31:38,242 - INFO - The backup data is saved in file json\backup_2024-10-26_19-31-38.json
+2024-10-26 22:52:43,152 - INFO - Total URLs: 9
+2024-10-26 22:52:43,492 - INFO - 1. Believe / 4.05.2021, 13:49 / https://itorrents-igruha.org/8095-believe.html
+2024-10-26 22:52:43,952 - ERROR - DEAD_TORRENT: "Invalid token character (b'\\n') at position 0."
+2024-10-26 22:52:43,953 - INFO -     No download options
+2024-10-26 22:52:44,257 - INFO - 2. (CACHE) Sailing Era / 12.09.2023, 14:10 / https://itorrents-igruha.org/14496-sailing-era.html
+2024-10-26 22:52:44,257 - INFO -     Sailing Era (Build 12153123) | P2P / 2023-09-12T14:10:00Z / 6.54 GB
+2024-10-26 22:52:44,489 - INFO - 3. (CACHE) \u0410\u0441\u0441\u0430\u0441\u0438\u043d \u041a\u0440\u0438\u0434 \u0412\u0430\u043b\u044c\u0433\u0430\u043b\u043b\u0430 / 7.01.2024, 22:01 / https://itorrents-igruha.org/3671-1-126821717.html
+2024-10-26 22:52:44,489 - INFO -     Assassin's Creed Valhalla | RePack \u043e\u0442 Igruha / 2023-04-14T23:14:23Z / 67.62 GB
+2024-10-26 22:52:44,802 - INFO - 4. (CACHE) \u0420\u0435\u0437\u0438\u0434\u0435\u043d\u0442 \u0418\u0432\u0435\u043b 4 \u0420\u0435\u043c\u0435\u0439\u043a (2023) / 15.03.2021, 14:53 / https://itorrents-igruha.org/11642-8-99980.html
+2024-10-26 22:52:44,802 - INFO -     Resident Evil 4 Remake (2023) | RePack \u043e\u0442 Igruha / 2023-05-16T15:51:59Z / 51.23 GB
+2024-10-26 22:52:45,045 - INFO - 5. (CACHE) Muse Dash / 25.10.2024, 22:27 / https://itorrents-igruha.org/7793-muse-dash.html
+2024-10-26 22:52:45,045 - INFO -     Muse Dash v4.9 (Build 15852759) | Portable / 2024-10-25T22:21:54Z / 3.50 GB
+2024-10-26 22:52:45,304 - INFO - 6. (CACHE) Metaphor: ReFantazio / 19.10.2024, 20:17 / https://itorrents-igruha.org/15285-metaphor-refantazio.html
+2024-10-26 22:52:45,305 - INFO -     Metaphor: ReFantazio | RePack \u043e\u0442 Igruha / 2024-10-20T04:06:32Z / 29.49 GB
+2024-10-26 22:52:45,553 - INFO - 7. (CACHE) Witchfire / 23.10.2024, 07:29 / https://itorrents-igruha.org/2576-witchfire.html
+2024-10-26 22:52:45,553 - INFO -     Witchfire | RePack \u043e\u0442 Igruha / 2024-04-16T05:45:17Z / 25.66 GB
+2024-10-26 22:52:45,553 - INFO -     Witchfire v0.4.6 (Build 16140198) | Portable / 2024-10-23T00:46:50Z / 31.83 GB
+2024-10-26 22:52:45,817 - INFO - 8. (CACHE) Eld\u0435n Ring / 17.10.2024, 14:07 / https://itorrents-igruha.org/3821-126821717.html
+2024-10-26 22:52:45,817 - INFO -     Elden Ring | RePack \u043e\u0442 Igruha / 2024-09-13T05:17:49Z / 61.04 GB
+2024-10-26 22:52:45,817 - INFO -     Elden Ring v1.16.0 (Build 15950357) | Portable / 2024-10-17T13:53:41Z / 68.29 GB
+2024-10-26 22:52:46,038 - INFO - 9. (CACHE) Windblown / 26.10.2024, 14:43 / https://itorrents-igruha.org/16170-windblown.html
+2024-10-26 22:52:46,038 - INFO -     Windblown v0.1.1 (Build 16183152) | Portable / 2024-10-26T14:43:00Z / 2.58 GB
+2024-10-26 22:52:46,038 - INFO - Execution time: 2.82 seconds
+2024-10-26 22:52:46,263 - INFO - Total Updated Games: 0
+2024-10-26 22:52:46,263 - INFO - Total Download Options: 10
+2024-10-26 22:52:46,263 - INFO - Total Pages with no download options: 1
+2024-10-26 22:52:46,263 - INFO - Total Invalid Pages: 0
+2024-10-26 22:52:46,263 - INFO - Total Error Connecting: 0
+2024-10-26 22:52:46,264 - INFO - The data is saved in file hydra_links_igruha.json
+2024-10-26 22:52:46,265 - INFO - The backup data is saved in file json\backup_2024-10-26_22-52-46.json

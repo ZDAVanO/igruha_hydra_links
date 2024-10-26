@@ -17,6 +17,8 @@ from translator import translate_text
 
 import logging
 
+import time
+
 logging.basicConfig(filename='parser.log', 
                     level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -90,23 +92,9 @@ def make_magnet_from_bytes(torrent_bytes):
 
     except Exception as e:
         # У випадку будь-якої помилки повертаємо None
-        # print('DEAD_TORRENT')
+        print('DEAD_TORRENT')
         logging.error(f'DEAD_TORRENT: {e}')
         return None, None, None
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -139,68 +127,68 @@ def get_download_options(soup):
         # Продовжити до наступної ітерації, якщо посилання веде на '/top-online.html'
         if torrent['href'] == '/top-online.html':
             continue
-
-        # Отримуємо сторінку завантаження
-        page_response_2 = requests.get(torrent['href'])
-        soup_2 = BeautifulSoup(page_response_2.text, 'html.parser')
-        download_page_link = soup_2.find('a', class_='torrent2')
-
-
-
-        # Шукаємо ul з id 'navbartor' всередині батьківських елементів
-        navbartor = torrent.find_parent('ul', id='navbartor')
-        if not navbartor:
-            continue  # Продовжити, якщо 'navbartor' не знайдено
-
-        # Шукаємо найближчий попередній елемент <center>
-        center_tag = navbartor.find_previous('center')
-        if not center_tag:
-            continue  # Продовжити, якщо <center> не знайдено
-
-        # Витягуємо текст з <span> всередині <center>
-        size_and_info = center_tag.find('span', style="font-size:14pt;")
-        if not size_and_info or not download_page_link:
-            continue  # Продовжити, якщо немає потрібних елементів
-
-
-
-        site_size, name_details = extract_size_and_info(size_and_info.get_text(strip=True))
-
-        # Завантаження торрент файлу
-        torrent_url = download_page_link['href']
+        
         try:
-            # Отримання контенту файлу
-            response = requests.get(torrent_url)
-            response.raise_for_status()  # Перевірка на помилки завантаження
+            # Отримуємо сторінку завантаження
+            page_response_2 = requests.get(torrent['href'])
+            page_response_2.raise_for_status()
+            soup_2 = BeautifulSoup(page_response_2.text, 'html.parser')
+            download_page_link = soup_2.find('a', class_='torrent2')
 
-            # Використання BytesIO для зберігання в пам'яті
-            torrent_bytes = BytesIO(response.content)
 
-            # Отримання магнет-посилання
-            # magnet_link, t_size, t_date = make_magnet_from_bytes(torrent_bytes.getvalue())
-            magnet_link, torrent_date, torrent_size_bytes = make_magnet_from_bytes(torrent_bytes.getvalue())
 
-        except requests.RequestException as e:
-            # print(f"Failed to download {torrent_url}: {e}")
-            logging.error(f"Failed to download {torrent_url}: {e}")
-            magnet_link, torrent_date, torrent_size_bytes = None, None, None  # Встановлюємо значення None, якщо не вдалося завантажити
+            # Шукаємо ul з id 'navbartor' всередині батьківських елементів
+            navbartor = torrent.find_parent('ul', id='navbartor')
+            if not navbartor:
+                continue  # Продовжити, якщо 'navbartor' не знайдено
 
-        if magnet_link:
-            # Додаємо інформацію про торрент до списку
-            torrent_info_list.append({
-                'info': name_details,  # Текст розміру
-                'fileSize': site_size,  # Текст розміру     
-                'date': torrent_date,  # Дата створення
-                'magnet_link': magnet_link  # Магнет-посилання
-            })
+            # Шукаємо найближчий попередній елемент <center>
+            center_tag = navbartor.find_previous('center')
+            if not center_tag:
+                continue  # Продовжити, якщо <center> не знайдено
+
+            # Витягуємо текст з <span> всередині <center>
+            size_and_info = center_tag.find('span', style="font-size:14pt;")
+            if not size_and_info or not download_page_link:
+                continue  # Продовжити, якщо немає потрібних елементів
+
+
+
+            site_size, name_details = extract_size_and_info(size_and_info.get_text(strip=True))
+
+            # Завантаження торрент файлу
+            torrent_url = download_page_link['href']
+            try:
+                # Отримання контенту файлу
+                response = requests.get(torrent_url)
+                response.raise_for_status()  # Перевірка на помилки завантаження
+
+                # Використання BytesIO для зберігання в пам'яті
+                torrent_bytes = BytesIO(response.content)
+
+                # Отримання магнет-посилання
+                # magnet_link, t_size, t_date = make_magnet_from_bytes(torrent_bytes.getvalue())
+                magnet_link, torrent_date, torrent_size_bytes = make_magnet_from_bytes(torrent_bytes.getvalue())
+
+            except requests.RequestException as e:
+                print(f"Failed to download {torrent_url}: {e}")
+                logging.error(f"Failed to download {torrent_url}: {e}")
+                magnet_link, torrent_date, torrent_size_bytes = None, None, None  # Встановлюємо значення None, якщо не вдалося завантажити
+
+            if magnet_link:
+                # Додаємо інформацію про торрент до списку
+                torrent_info_list.append({
+                    'info': name_details,  # Текст розміру
+                    'fileSize': site_size,  # Текст розміру     
+                    'date': torrent_date,  # Дата створення
+                    'magnet_link': magnet_link  # Магнет-посилання
+                })
+
+        except Exception as e:
+            print(f"Failed to process {torrent['href']}: {e}")
+            logging.error(f"Failed to process {torrent['href']}: {e}")
 
     return torrent_info_list
-
-
-
-
-
-
 
 
 
@@ -239,10 +227,37 @@ def extract_info_from_page(soup):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------------------------------
+
 # Завантаження та парсинг XML
 sitemap_url = 'https://itorrents-igruha.org/sitemap.xml'
-response = requests.get(sitemap_url)
-sitemap_content = response.content
+
+try:
+    response = requests.get(sitemap_url)
+    response.raise_for_status()  # Перевірка статусу відповіді, кине помилку, якщо статус не 200
+    sitemap_content = response.content
+except requests.exceptions.RequestException as e:
+    print(f"Error connecting to {sitemap_url}: {e}")
+    logging.error(f"Error connecting to {sitemap_url}: {e}")
+    exit(1)  # Завершення програми з кодом 1 для позначення помилки
+
+
 
 # Парсинг XML для витягнення всіх URL
 root = ET.fromstring(sitemap_content)
@@ -252,19 +267,19 @@ urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
 # urls = urls[6700:6750]
 
-# problem_urls = [
-#     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
-#     "https://itorrents-igruha.org/14496-sailing-era.html",
-#     "https://itorrents-igruha.org/3671-1-126821717.html",
-#     "https://itorrents-igruha.org/11642-8-99980.html",
-#     "https://itorrents-igruha.org/7793-muse-dash.html",
-#     "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
-#     "https://itorrents-igruha.org/2576-witchfire.html",
-#     "https://itorrents-igruha.org/3821-126821717.html",
-#     "https://itorrents-igruha.org/16170-windblown.html"
+problem_urls = [
+    "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
+    "https://itorrents-igruha.org/14496-sailing-era.html",
+    "https://itorrents-igruha.org/3671-1-126821717.html",
+    "https://itorrents-igruha.org/11642-8-99980.html",
+    "https://itorrents-igruha.org/7793-muse-dash.html",
+    "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
+    "https://itorrents-igruha.org/2576-witchfire.html",
+    "https://itorrents-igruha.org/3821-126821717.html",
+    "https://itorrents-igruha.org/16170-windblown.html"
 
-# ]
-# urls = problem_urls
+]
+urls = problem_urls
 
 print(f"Total URLs: {len(urls)}\n")
 logging.info(f"Total URLs: {len(urls)}")
@@ -281,6 +296,7 @@ download_options_stats = 0
 no_download_options_stats  = 0
 invalid_pages_stats = 0
 
+error_connecting_stats = 0
 
 
 # Ініціалізація кешу з файлу, якщо він існує
@@ -299,11 +315,23 @@ else:
 
 
 
+# Запускаємо таймер
+start_time = time.time()
 
 # Пройдемо по кожному URL та дістанемо дані
 for index, url in enumerate(urls, start=1):
 
-    page_response = requests.get(url)
+    try:
+        page_response = requests.get(url)
+        page_response.raise_for_status()  # викликає помилку, якщо статус не 200
+    except requests.exceptions.RequestException as e:
+        print(f'{index}. Error connecting to {url}: {e}')
+        logging.error(f'{index}. Error connecting to {url}: {e}')
+        error_connecting_stats += 1
+        continue
+
+
+
     soup = BeautifulSoup(page_response.text, 'html.parser')
 
     site_update_date, site_game_name = extract_info_from_page(soup)
@@ -311,8 +339,11 @@ for index, url in enumerate(urls, start=1):
 
     # Якщо сторінка не з грою, пропускаємо
     if not site_update_date or not site_game_name:
-        # print(f'{index}. INVALID PAGE: {url}')
-        logging.warning(f'{index}. INVALID PAGE: {url}')
+
+        invalid_page_log = f'{index}. INVALID PAGE: {url}'
+        print(invalid_page_log)
+        logging.warning(invalid_page_log)
+
         invalid_pages_stats += 1
         continue
 
@@ -320,24 +351,30 @@ for index, url in enumerate(urls, start=1):
     cache_entry = cache.get(url)
     if cache_entry and cache_entry['site_update_date'] == site_update_date:
         # Якщо дані актуальні, беремо з кешу
-        # print(f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}')
-        logging.info(f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}')
+        cache_game_page_log = f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}'
+        print(cache_game_page_log)
+        logging.info(cache_game_page_log)
+
         for cached_download in cache_entry["download_options"]:
-            # print(f'    {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}')
-            logging.info(f'    {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}')
+
+            cache_dn_option_log = f'    {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}'
+            print(cache_dn_option_log)
+            logging.info(cache_dn_option_log)
+
             data["downloads"].append(cached_download)
             download_options_stats += 1
         continue
 
 
+    game_page_log = f'{index}. {site_game_name} / {site_update_date} / {url}'
+    print(game_page_log)
+    logging.info(game_page_log)
 
-    # print(f'{index}. {site_game_name} / {site_update_date} / {url}')
-    logging.info(f'{index}. {site_game_name} / {site_update_date} / {url}')
 
     download_options = get_download_options(soup)
     # Якщо немає варіантів завантаження, пропускаємо
     if (not download_options):
-        # print("    No download options")
+        print("    No download options")
         logging.info("    No download options")
         no_download_options_stats += 1
         continue
@@ -365,8 +402,11 @@ for index, url in enumerate(urls, start=1):
         else:
             uploadDate = convert_to_iso_format(site_update_date)
         
-        # print(f'    {title} / {uploadDate} / {download_option['fileSize']}')
-        logging.info(f'    {title} / {uploadDate} / {download_option["fileSize"]}')
+
+        dn_option_log = f'    {title} / {uploadDate} / {download_option["fileSize"]}'
+        print(dn_option_log)
+        logging.info(dn_option_log)
+
 
         download_info = {
             "title": title,  # Назва файлу, припустимо, остання частина URL
@@ -383,6 +423,16 @@ for index, url in enumerate(urls, start=1):
     cache[url] = cache_entry
 
 
+print()
+
+# Закінчуємо таймер
+end_time = time.time()
+execution_time = end_time - start_time
+
+execution_time_log = f'Execution time: {execution_time:.2f} seconds'
+print(execution_time_log)
+logging.info(execution_time_log)
+
 
 
 
@@ -391,22 +441,29 @@ with open(CACHE_FILE, 'w', encoding='utf-8') as file:
     json.dump(cache, file, ensure_ascii=False, indent=4)
 
 
-# Виведення загальної статистики
-# print(f"\nTotal URLs: {len(urls)}")
-print(f"Total Updated Games: {updated_games_stats}")
-print(f"Total Download Options: {download_options_stats}")
-print(f"Total Pages with no download options: {no_download_options_stats}")
-print(f"Total Invalid Pages: {invalid_pages_stats}")
 
-logging.info(f"Total Updated Games: {updated_games_stats}")
-logging.info(f"Total Download Options: {download_options_stats}")
-logging.info(f"Total Pages with no download options: {no_download_options_stats}")
-logging.info(f"Total Invalid Pages: {invalid_pages_stats}")
+# Виведення загальної статистики
+# Функція для виведення статистики та логування
+def print_and_log(stat_name, stat_value):
+    output = f"{stat_name}: {stat_value}"
+    print(output)
+    logging.info(output)
+# Зберігаємо статистику в словнику
+stats = {
+    "Total Updated Games": updated_games_stats,
+    "Total Download Options": download_options_stats,
+    "Total Pages with no download options": no_download_options_stats,
+    "Total Invalid Pages": invalid_pages_stats,
+    "Total Error Connecting": error_connecting_stats,
+}
+# Виводимо статистику
+for stat_name, stat_value in stats.items():
+    print_and_log(stat_name, stat_value)
+
 
 
 
 file_path = 'hydra_links_igruha.json'
-
 # Збереження у JSON файл
 with open(file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)  
