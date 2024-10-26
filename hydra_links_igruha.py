@@ -121,6 +121,7 @@ def extract_size_and_info(size_text):
 
 
 def get_download_options(soup):
+
     # Список для збереження результатів
     torrent_info_list = []
 
@@ -129,55 +130,62 @@ def get_download_options(soup):
 
     for torrent in torrent_links:
 
-        download_page_link = None
-        if (torrent['href'] != '/top-online.html'):
-            page_response_2 = requests.get(torrent['href'])
-            soup_2 = BeautifulSoup(page_response_2.text, 'html.parser')
+        # Продовжити до наступної ітерації, якщо посилання веде на '/top-online.html'
+        if torrent['href'] == '/top-online.html':
+            continue
 
-            download_page_link = soup_2.find('a', class_='torrent2')
+        # Отримуємо сторінку завантаження
+        page_response_2 = requests.get(torrent['href'])
+        soup_2 = BeautifulSoup(page_response_2.text, 'html.parser')
+        download_page_link = soup_2.find('a', class_='torrent2')
+
 
 
         # Шукаємо ul з id 'navbartor' всередині батьківських елементів
         navbartor = torrent.find_parent('ul', id='navbartor')
-        if navbartor:
+        if not navbartor:
+            continue  # Продовжити, якщо 'navbartor' не знайдено
 
-            # Шукаємо найближчий попередній елемент <center>
-            center_tag = navbartor.find_previous('center')
-            if center_tag:
+        # Шукаємо найближчий попередній елемент <center>
+        center_tag = navbartor.find_previous('center')
+        if not center_tag:
+            continue  # Продовжити, якщо <center> не знайдено
 
-                # Витягуємо текст з <span> всередині <center>
-                size_and_info = center_tag.find('span', style="font-size:14pt;")
+        # Витягуємо текст з <span> всередині <center>
+        size_and_info = center_tag.find('span', style="font-size:14pt;")
+        if not size_and_info or not download_page_link:
+            continue  # Продовжити, якщо немає потрібних елементів
 
-                if size_and_info and download_page_link:
 
-                    site_size, name_details = extract_size_and_info(size_and_info.get_text(strip=True))
 
-                    # Завантаження торрент файлу
-                    torrent_url = download_page_link['href']
-                    try:
-                        # Отримання контенту файлу
-                        response = requests.get(torrent_url)
-                        response.raise_for_status()  # Перевірка на помилки завантаження
+        site_size, name_details = extract_size_and_info(size_and_info.get_text(strip=True))
 
-                        # Використання BytesIO для зберігання в пам'яті
-                        torrent_bytes = BytesIO(response.content)
+        # Завантаження торрент файлу
+        torrent_url = download_page_link['href']
+        try:
+            # Отримання контенту файлу
+            response = requests.get(torrent_url)
+            response.raise_for_status()  # Перевірка на помилки завантаження
 
-                        # Отримання магнет-посилання
-                        # magnet_link, t_size, t_date = make_magnet_from_bytes(torrent_bytes.getvalue())
-                        magnet_link, torrent_date, torrent_size_bytes = make_magnet_from_bytes(torrent_bytes.getvalue())
+            # Використання BytesIO для зберігання в пам'яті
+            torrent_bytes = BytesIO(response.content)
 
-                    except requests.RequestException as e:
-                        print(f"Не вдалося завантажити {torrent_url}: {e}")
-                        magnet_link, torrent_date, torrent_size_bytes = None, None, None  # Встановлюємо значення None, якщо не вдалося завантажити
+            # Отримання магнет-посилання
+            # magnet_link, t_size, t_date = make_magnet_from_bytes(torrent_bytes.getvalue())
+            magnet_link, torrent_date, torrent_size_bytes = make_magnet_from_bytes(torrent_bytes.getvalue())
 
-                    if magnet_link:
-                        # Додаємо інформацію про торрент до списку
-                        torrent_info_list.append({
-                            'info': name_details,  # Текст розміру
-                            'fileSize': site_size,  # Текст розміру     
-                            'date': torrent_date,  # Дата створення
-                            'magnet_link': magnet_link  # Магнет-посилання
-                        })
+        except requests.RequestException as e:
+            print(f"Failed to download {torrent_url}: {e}")
+            magnet_link, torrent_date, torrent_size_bytes = None, None, None  # Встановлюємо значення None, якщо не вдалося завантажити
+
+        if magnet_link:
+            # Додаємо інформацію про торрент до списку
+            torrent_info_list.append({
+                'info': name_details,  # Текст розміру
+                'fileSize': site_size,  # Текст розміру     
+                'date': torrent_date,  # Дата створення
+                'magnet_link': magnet_link  # Магнет-посилання
+            })
 
     return torrent_info_list
 
@@ -236,20 +244,20 @@ namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 
 urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
-urls = urls[6700:6750]
+# urls = urls[6700:6750]
 
-# problem_urls = [
-#     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
-#     "https://itorrents-igruha.org/14496-sailing-era.html",
-#     "https://itorrents-igruha.org/3671-1-126821717.html",
-#     "https://itorrents-igruha.org/11642-8-99980.html",
-#     "https://itorrents-igruha.org/7793-muse-dash.html",
-#     "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
-#     "https://itorrents-igruha.org/2576-witchfire.html",
-#     "https://itorrents-igruha.org/3821-126821717.html"
+problem_urls = [
+    "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
+    "https://itorrents-igruha.org/14496-sailing-era.html",
+    "https://itorrents-igruha.org/3671-1-126821717.html",
+    "https://itorrents-igruha.org/11642-8-99980.html",
+    "https://itorrents-igruha.org/7793-muse-dash.html",
+    "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
+    "https://itorrents-igruha.org/2576-witchfire.html",
+    "https://itorrents-igruha.org/3821-126821717.html"
 
-# ]
-# urls = problem_urls
+]
+urls = problem_urls
 
 
 print(f"Total URLs: {len(urls)}\n")
@@ -312,7 +320,7 @@ for index, url in enumerate(urls, start=1):
             download_options_stats += 1
         continue
 
-    updated_games_stats += 1
+
 
     print(f'{index}. {site_game_name} / {site_update_date} / {url}')
 
@@ -322,6 +330,8 @@ for index, url in enumerate(urls, start=1):
         print("    No download options")
         no_download_options_stats += 1
         continue
+
+    updated_games_stats += 1
 
     # translated_name = translate_text(site_game_name, target_language='en', source_language='auto')
     translated_name = translate_text(site_game_name, target_language='en', source_language='ru')
