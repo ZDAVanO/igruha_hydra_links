@@ -198,10 +198,9 @@ def get_download_options(soup):
 
 
 
-
-
-
-
+def convert_to_iso_format(date_str, date_format="%d.%m.%Y, %H:%M"):
+    parsed_date = datetime.strptime(date_str, date_format)
+    return parsed_date.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def extract_info_from_page(soup):
 
@@ -212,11 +211,11 @@ def extract_info_from_page(soup):
         time_element = article_info.find('time', {'class': 'published'})
         if time_element:
 
-            # site_update_date = time_element.text
+            site_update_date = time_element.text
 
-            parsed_date = datetime.strptime(time_element.text, "%d.%m.%Y, %H:%M")
-            iso_format_date = parsed_date.strftime("%Y-%m-%dT%H:%M:%SZ")
-            site_update_date = iso_format_date
+            # parsed_date = datetime.strptime(time_element.text, "%d.%m.%Y, %H:%M")
+            # iso_format_date = parsed_date.strftime("%Y-%m-%dT%H:%M:%SZ")
+            # site_update_date = iso_format_date
     
     # Витягування назви
     site_game_title = None
@@ -254,11 +253,11 @@ urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 #     "https://itorrents-igruha.org/7793-muse-dash.html",
 #     "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
 #     "https://itorrents-igruha.org/2576-witchfire.html",
-#     "https://itorrents-igruha.org/3821-126821717.html"
+#     "https://itorrents-igruha.org/3821-126821717.html",
+#     "https://itorrents-igruha.org/16170-windblown.html"
 
 # ]
 # urls = problem_urls
-
 
 print(f"Total URLs: {len(urls)}\n")
 
@@ -331,6 +330,7 @@ for index, url in enumerate(urls, start=1):
         no_download_options_stats += 1
         continue
 
+    # якщо дані не збережені у кеші, та є опції завантаження
     updated_games_stats += 1
 
     # translated_name = translate_text(site_game_name, target_language='en', source_language='auto')
@@ -351,7 +351,7 @@ for index, url in enumerate(urls, start=1):
         if (download_option['date']):
             uploadDate = download_option['date']
         else:
-            uploadDate = site_update_date
+            uploadDate = convert_to_iso_format(site_update_date)
         
         print(f'    {title} / {uploadDate} / {download_option['fileSize']}')
 
@@ -400,8 +400,6 @@ with open(file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)  
 print()
 print(f"The data is saved in file {file_path}")
-
-
 
 
 
