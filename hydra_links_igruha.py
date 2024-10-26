@@ -100,7 +100,6 @@ def make_magnet_from_bytes(torrent_bytes):
 
 
 
-
 def extract_size_and_info(size_text):
     # Шаблон для регулярного виразу
     pattern = r'Размер:\s*([\d.,]+\s*(?:GB|MB|ГБ|МБ|Gb|Mb|Гб|Мб|gb|mb|гб|мб|МВ|МB|Mб))\s*(.*?)(?:\s*\|)?\s*$'
@@ -192,25 +191,18 @@ def get_download_options(soup):
 
 
 
-
 def convert_to_iso_format(date_str, date_format="%d.%m.%Y, %H:%M"):
     parsed_date = datetime.strptime(date_str, date_format)
     return parsed_date.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 def extract_info_from_page(soup):
-
     # Витягування дати та часу
     site_update_date = None
     article_info = soup.find('div', {'id': 'article-film-full-info'})
     if article_info:
         time_element = article_info.find('time', {'class': 'published'})
         if time_element:
-
             site_update_date = time_element.text
-
-            # parsed_date = datetime.strptime(time_element.text, "%d.%m.%Y, %H:%M")
-            # iso_format_date = parsed_date.strftime("%Y-%m-%dT%H:%M:%SZ")
-            # site_update_date = iso_format_date
     
     # Витягування назви
     site_game_title = None
@@ -242,9 +234,6 @@ def extract_info_from_page(soup):
 
 
 
-
-# ----------------------------------------------------------------------------------------
-
 # Завантаження та парсинг XML
 sitemap_url = 'https://itorrents-igruha.org/sitemap.xml'
 
@@ -265,7 +254,7 @@ namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 
 urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
-urls = urls[:100] # 200 перших URL для тестування
+# urls = urls[:100] # 200 перших URL для тестування
 
 # problem_urls = [
 #     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
@@ -320,7 +309,6 @@ start_time = time.time()
 
 # Пройдемо по кожному URL та дістанемо дані
 for index, url in enumerate(urls, start=1):
-
     try:
         page_response = requests.get(url)
         page_response.raise_for_status()  # викликає помилку, якщо статус не 200
@@ -330,12 +318,8 @@ for index, url in enumerate(urls, start=1):
         error_connecting_stats += 1
         continue
 
-
-
     soup = BeautifulSoup(page_response.text, 'html.parser')
-
     site_update_date, site_game_name = extract_info_from_page(soup)
-
 
     # Якщо сторінка не з грою, пропускаємо
     if not site_update_date or not site_game_name:
@@ -346,7 +330,6 @@ for index, url in enumerate(urls, start=1):
 
         invalid_pages_stats += 1
         continue
-
 
     cache_entry = cache.get(url)
     if cache_entry and cache_entry['site_update_date'] == site_update_date:
@@ -365,11 +348,9 @@ for index, url in enumerate(urls, start=1):
             download_options_stats += 1
         continue
 
-
     game_page_log = f'{index}. {site_game_name} / {site_update_date} / {url}'
     print(game_page_log)
     logging.info(game_page_log)
-
 
     download_options = get_download_options(soup)
     # Якщо немає варіантів завантаження, пропускаємо
@@ -402,11 +383,9 @@ for index, url in enumerate(urls, start=1):
         else:
             uploadDate = convert_to_iso_format(site_update_date)
         
-
         dn_option_log = f'    {title} / {uploadDate} / {download_option["fileSize"]}'
         print(dn_option_log)
         logging.info(dn_option_log)
-
 
         download_info = {
             "title": title,  # Назва файлу, припустимо, остання частина URL
@@ -423,6 +402,7 @@ for index, url in enumerate(urls, start=1):
     cache[url] = cache_entry
 
 
+
 print()
 
 # Закінчуємо таймер
@@ -432,7 +412,6 @@ execution_time = end_time - start_time
 execution_time_log = f'Execution time: {execution_time:.2f} seconds'
 print(execution_time_log)
 logging.info(execution_time_log)
-
 
 
 
@@ -462,14 +441,12 @@ for stat_name, stat_value in stats.items():
 
 
 
-
 file_path = 'hydra_links_igruha.json'
 # Збереження у JSON файл
 with open(file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)  
 print(f"\nThe data is saved in file {file_path}")
 logging.info(f"The data is saved in file {file_path}")
-
 
 
 
@@ -487,7 +464,7 @@ print(f"The backup data is saved in file {backup_file_path}")
 logging.info(f"The backup data is saved in file {backup_file_path}")
 
 
-# ########################################################################################
+
 
 # url = "https://itorrents-igruha.org/14496-sailing-era.html"
 # #     "https://itorrents-igruha.org/14496-sailing-era.html"
