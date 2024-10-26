@@ -7,29 +7,36 @@ import unicodedata
 
 
 # Ім'я файлу для збереження кешу
-CACHE_FILE = 'translation_cache.json'
+# CACHE_FILE = 'translation_cache.json'
+
+CACHE_DIR = 'cache'
+CACHE_FILE = os.path.join(CACHE_DIR, 'translation_cache.json')
+
+
+
+
 
 def load_cache():
-    """Завантажує кеш з файлу, якщо файл існує."""
+    # """Завантажує кеш з файлу, якщо файл існує."""
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
     return {}
 
 def save_cache(cache):
-    """Зберігає кеш у файл."""
+    # """Зберігає кеш у файл."""
     with open(CACHE_FILE, 'w', encoding='utf-8') as f:
         json.dump(cache, f, ensure_ascii=False, indent=4)
 
 
-def translate_line(text, target_language='en', cache={}):
+def translate_line(text, target_language='en', source_language='auto', cache={}):
 
     # Перевіряємо, чи є текст вже в кеші
     if text in cache:
-        print(f'Cache hit for "{text}"')
+        print(f'(TRANSLATE_TEXT) Cache hit for "{text}"')
         return cache[text]
 
-    url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl={target_language}&dt=t&q={requests.utils.quote(text)}"
+    url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={source_language}&tl={target_language}&dt=t&q={requests.utils.quote(text)}"
     
     try:
         response = requests.get(url)
@@ -66,7 +73,7 @@ def replace_specific_cyrillic_lookalikes(text):
     return text
 
 
-def translate_text(text, target_language='en'):
+def translate_text(text, target_language='en', source_language='auto'):
 
     
     # Завантажуємо кеш з файлу
@@ -82,7 +89,7 @@ def translate_text(text, target_language='en'):
     # Перевіряємо, чи рядок містить неанглійські букви
     if non_english_pattern.search(text):
         print("TRANSLATE_TEXT")
-        translated_text = translate_line(text , target_language, cache=cache)
+        translated_text = translate_line(text , target_language, source_language, cache=cache)
         result = translated_text
         # result = replace_specific_cyrillic_lookalikes(translated_text)
     else:

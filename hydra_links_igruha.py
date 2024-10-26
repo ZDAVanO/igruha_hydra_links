@@ -15,6 +15,8 @@ from urllib.parse import quote  # Import the quote function for URL encoding
 
 from translator import translate_text
 
+import json
+
 # Форматує розмір у байтах у зручний формат (MB або GB).
 def format_size(size_in_bytes):
     if size_in_bytes >= 2**30:  # Якщо розмір більший за 1 ГБ
@@ -162,17 +164,17 @@ def get_download_options(soup):
 
                         # Отримання магнет-посилання
                         # magnet_link, t_size, t_date = make_magnet_from_bytes(torrent_bytes.getvalue())
-                        magnet_link, torrent_date, torrent_size = make_magnet_from_bytes(torrent_bytes.getvalue())
+                        magnet_link, torrent_date, torrent_size_bytes = make_magnet_from_bytes(torrent_bytes.getvalue())
 
                     except requests.RequestException as e:
                         print(f"Не вдалося завантажити {torrent_url}: {e}")
-                        magnet_link, torrent_date, torrent_size = None, None, None  # Встановлюємо значення None, якщо не вдалося завантажити
+                        magnet_link, torrent_date, torrent_size_bytes = None, None, None  # Встановлюємо значення None, якщо не вдалося завантажити
 
                     if magnet_link:
                         # Додаємо інформацію про торрент до списку
                         torrent_info_list.append({
                             'info': name_details,  # Текст розміру
-                            'size': site_size,  # Текст розміру     
+                            'fileSize': site_size,  # Текст розміру     
                             'date': torrent_date,  # Дата створення
                             'magnet_link': magnet_link  # Магнет-посилання
                         })
@@ -223,16 +225,6 @@ def extract_info_from_page(soup):
 
 
 
-
-
-
-
-
-
-
-
-
-
 # Завантаження та парсинг XML
 sitemap_url = 'https://itorrents-igruha.org/sitemap.xml'
 response = requests.get(sitemap_url)
@@ -244,7 +236,7 @@ namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 
 urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
-# urls = urls[660:]
+# urls = urls[:200]
 
 # problem_urls = [
 #     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
@@ -252,6 +244,9 @@ urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 #     "https://itorrents-igruha.org/3671-1-126821717.html",
 #     "https://itorrents-igruha.org/11642-8-99980.html",
 #     "https://itorrents-igruha.org/7793-muse-dash.html",
+#     "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
+#     "https://itorrents-igruha.org/2576-witchfire.html",
+#     "https://itorrents-igruha.org/3821-126821717.html"
 
 # ]
 # urls = problem_urls
@@ -266,8 +261,28 @@ data = {
     "downloads": []
 }
 
-download_options = 0
-no_download_options = 0
+download_options_stats = 0
+no_download_options_stats  = 0
+invalid_pages_stats = 0
+
+
+
+# Ініціалізація кешу з файлу, якщо він існує
+CACHE_DIR = 'cache'
+CACHE_FILE = os.path.join(CACHE_DIR, 'parser_cache.json')
+
+# Create the cache directory if it doesn't exist
+if not os.path.exists(CACHE_DIR):
+    os.makedirs(CACHE_DIR)
+
+if os.path.exists(CACHE_FILE):
+    with open(CACHE_FILE, 'r', encoding='utf-8') as file:
+        cache = json.load(file)
+else:
+    cache = {}
+
+
+
 
 # Пройдемо по кожному URL та дістанемо дані
 for index, url in enumerate(urls, start=1):
@@ -277,18 +292,41 @@ for index, url in enumerate(urls, start=1):
 
     site_update_date, site_game_name = extract_info_from_page(soup)
 
+
+    cache_entry = cache.get(url)
+    if cache_entry and cache_entry['site_update_date'] == site_update_date:
+        # Якщо дані актуальні, беремо з кешу
+        print(f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}')
+        for cached_download in cache_entry["download_options"]:
+            print(f'    {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}')
+            data["downloads"].append(cached_download)
+            download_options_stats += 1
+        continue
+
+
     if not site_update_date or not site_game_name:
-        print(f'{index}. INVALID PAGE: {url}')  
+        print(f'{index}. INVALID PAGE: {url}')
+        invalid_pages_stats += 1
     else:
         print(f'{index}. {site_game_name} / {site_update_date} / {url}')
         download_options = get_download_options(soup)
 
         if (not download_options):
             print("    No download options")
-            no_download_options += 1
+            no_download_options_stats += 1
         else:
 
-            translated_name = translate_text(site_game_name)
+            # translated_name = translate_text(site_game_name, target_language='en', source_language='auto')
+            translated_name = translate_text(site_game_name, target_language='en', source_language='ru')
+
+
+            # Новий запис у кеші
+            cache_entry = {
+                "site_update_date": site_update_date,
+                "site_game_name": site_game_name,
+                "download_options": []
+            }
+            
 
             for download_option in download_options:
 
@@ -300,25 +338,34 @@ for index, url in enumerate(urls, start=1):
                 else:
                     uploadDate = site_update_date
                 
-                print(f'    {title} / {uploadDate} / {download_option['size']}')
+                print(f'    {title} / {uploadDate} / {download_option['fileSize']}')
 
                 download_info = {
                     "title": title,  # Назва файлу, припустимо, остання частина URL
                     "uris": [download_option['magnet_link']],
                     "uploadDate": uploadDate,
-                    "fileSize": download_option['size'],  # Тут можна додати функцію для витягнення розміру файлу
+                    "fileSize": download_option['fileSize'],  # Тут можна додати функцію для витягнення розміру файлу
                 }
                 data["downloads"].append(download_info)
-                no_download_options += 1
+                cache_entry["download_options"].append(download_info)
+                download_options_stats += 1
+        
+            # Оновлюємо кеш із новими даними для поточного URL
+            cache[url] = cache_entry
+
+
+
+# Збереження кешу у файл після виконання скрипту
+with open(CACHE_FILE, 'w', encoding='utf-8') as file:
+    json.dump(cache, file, ensure_ascii=False, indent=4)
 
 
 # Виведення загальної статистики
 print()
 # print(f"\nTotal URLs: {len(urls)}")
-# print(f"Total Invalid Pages: {len(urls) - len(data['downloads'])}") #виводить відємні значення
-print(f"Total Download Options: {download_options}")
-print(f"Total Pages with no download options: {no_download_options}")
-
+print(f"Total Download Options: {download_options_stats}")
+print(f"Total Pages with no download options: {no_download_options_stats}")
+print(f"Total Invalid Pages: {invalid_pages_stats}")
 
 
 json_dir = 'json'
@@ -361,7 +408,7 @@ print(f"The data is saved in file {file_path}")
 # for data in torrent_data:
 #     # print(f"Download Torrent page: {data['link']}")
 #     print(f"Info: {data['info']}")
-#     print(f"size: {data['size']}")
+#     print(f"size: {data['fileSize']}")
 #     print(f"Date: {data['date']}")
 #     # print(f"Torrent Link: {data['torrent_link']}")
 #     print(f"Magnet Link: {data['magnet_link']}\n")
