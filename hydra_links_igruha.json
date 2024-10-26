@@ -2,46 +2,6 @@
     "name": "Torrents-Igruha",
     "downloads": [
         {
-            "title": "Sailing Era (Build 12153123) | P2P",
-            "uris": [
-                "magnet:?xt=urn:btih:IVEMTRCRCVGWO5HSWROV7TNTYVJNS6YO&dn=Sailing.Era.Edge.of.the.World-RUNE&xl=7022746881"
-            ],
-            "uploadDate": "2023-09-12T14:10:00Z",
-            "fileSize": "6.54 GB"
-        },
-        {
-            "title": "Assassin's Creed Valhalla | RePack от Igruha",
-            "uris": [
-                "magnet:?xt=urn:btih:HX5WUPXEN7CZUGCXHONEXUBH7GVAXYWM&dn=Assassins%20Creed%20Valhalla%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=72613969517"
-            ],
-            "uploadDate": "2023-04-14T23:14:23Z",
-            "fileSize": "67.62 GB"
-        },
-        {
-            "title": "Resident Evil 4 Remake (2023) | RePack от Igruha",
-            "uris": [
-                "magnet:?xt=urn:btih:5QXXNJY2J5MOH64U2F46HFTGJUF6IK7P&dn=Resident%20Evil%204%20Remake%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=55012104968"
-            ],
-            "uploadDate": "2023-05-16T15:51:59Z",
-            "fileSize": "51.23 GB"
-        },
-        {
-            "title": "Muse Dash v4.9 (Build 15852759) | Portable",
-            "uris": [
-                "magnet:?xt=urn:btih:KUJCWZEWPLSV6W4FNTTUJH4PY72Y2D4C&dn=Muse%20Dash&tr=http://bt2.t-ru.org/ann&xl=3761317178"
-            ],
-            "uploadDate": "2024-10-25T22:21:54Z",
-            "fileSize": "3.50 GB"
-        },
-        {
-            "title": "Metaphor: ReFantazio | RePack от Igruha",
-            "uris": [
-                "magnet:?xt=urn:btih:NUL4KTDASAIATISRUG2SNAL74HBOGDKM&dn=Metaphor%20ReFantazio%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=31669609178"
-            ],
-            "uploadDate": "2024-10-20T04:06:32Z",
-            "fileSize": "29.49 GB"
-        },
-        {
             "title": "Witchfire | RePack от Igruha",
             "uris": [
                 "magnet:?xt=urn:btih:SHF5KUYGTSYHYFZ4PAUZZB7HAMWFA5IN&dn=Witchfire%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=27555233445"
@@ -58,28 +18,396 @@
             "fileSize": "31.83 GB"
         },
         {
-            "title": "Elden Ring | RePack от Igruha",
+            "title": "Metaphor: ReFantazio | RePack от Igruha",
             "uris": [
-                "magnet:?xt=urn:btih:WWQHUBUXHUCQGGIJVOXRVNNG7NVXQZSX&dn=Elden%20Ring%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=65548997856"
+                "magnet:?xt=urn:btih:NUL4KTDASAIATISRUG2SNAL74HBOGDKM&dn=Metaphor%20ReFantazio%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=31669609178"
             ],
-            "uploadDate": "2024-09-13T05:17:49Z",
-            "fileSize": "61.04 GB"
+            "uploadDate": "2024-10-20T04:06:32Z",
+            "fileSize": "29.49 GB"
         },
         {
-            "title": "Elden Ring v1.16.0 (Build 15950357) | Portable",
+            "title": "Unknown 9: Awakening | RePack от Igruha",
             "uris": [
-                "magnet:?xt=urn:btih:Z6HZLCAX4X76XTNCXIJA66NVJSI34GSU&dn=ELDEN%20RING%20v.1.16%20%282022%29&tr=udp://tracker.opentrackr.org:1337/announce&xl=73333507553"
+                "magnet:?xt=urn:btih:W5GU67N3KFND5KOKCOAHDJWBQSD5YRDL&dn=Unknown%209%20Awakening%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=31927101889"
             ],
-            "uploadDate": "2024-10-17T13:53:41Z",
-            "fileSize": "68.29 GB"
+            "uploadDate": "2024-10-20T01:32:37Z",
+            "fileSize": "29.73 GB"
         },
         {
-            "title": "Windblown v0.1.1 (Build 16183152) | Portable",
+            "title": "Unknown 9: Awakening (Build 16100944) | Portable",
             "uris": [
-                "magnet:?xt=urn:btih:4OQXSNLV3VKNQPZRGNXM6W2EPKMI4SSS&dn=Windblown&tr=http://bt4.t-ru.org/ann&xl=2776936376"
+                "magnet:?xt=urn:btih:KCASEJ3VSYWLIXTFHU7JGAXAICGFY7KS&dn=Unknown%209%20-%20Awakening%20%282024%29&tr=udp://tracker.opentrackr.org:1337/announce&xl=37157209737"
             ],
-            "uploadDate": "2024-10-26T14:43:00Z",
-            "fileSize": "2.58 GB"
+            "uploadDate": "2024-10-22T17:10:31Z",
+            "fileSize": "34.60 GB"
+        },
+        {
+            "title": "Astro Colony (Build 16071014) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:2FXCB7GQ4ADAZNYWQBD4V3PBKDZXKDCE&dn=Astro%20Colony%20v18.10.2024.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=3336539929"
+            ],
+            "uploadDate": "2024-10-19T15:51:15Z",
+            "fileSize": "3.10 GB"
+        },
+        {
+            "title": "Ancient Cities v1.0.3.37 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:26HNGJOK2HIN4A4O7LTYDCSPIEOH3O2X&dn=Ancient.Cities%20v1.0.3.37.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=1859183085"
+            ],
+            "uploadDate": "2024-10-19T15:51:22Z",
+            "fileSize": "1.73 GB"
+        },
+        {
+            "title": "Exogate Initiative v0.9.1 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:WWOECNDSFXAECVKPNSVNTQVBP6PPKBRE&dn=Exogate.Initiative%20v0.9.1.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=1663742220"
+            ],
+            "uploadDate": "2024-10-19T15:51:00Z",
+            "fileSize": "1.54 GB"
+        },
+        {
+            "title": "Bloons TD 6 v45.2 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:VR3AIHQKWIKGQATQXT5LLZAG2MVWYN53&dn=Bloons.TD.6%20v45.2.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=1494656307"
+            ],
+            "uploadDate": "2024-10-19T15:51:07Z",
+            "fileSize": "1.39 GB"
+        },
+        {
+            "title": "Kingdom Two Crowns v2.0.3 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:NA32GHEGNPO6RKGOQYFK2AG7BCNEPKTF&dn=Kingdom.Two.Crowns%20v2.0.3.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=1325814706"
+            ],
+            "uploadDate": "2024-10-19T15:50:54Z",
+            "fileSize": "1.23 GB"
+        },
+        {
+            "title": "The Lord of the Rings Return to Moria | RePack от Igruha",
+            "uris": [
+                "magnet:?xt=urn:btih:ZY5P47QDI7QFZHC4QMHTDGWKC7H5PFYJ&dn=The%20Lord%20of%20the%20Rings%20Return%20to%20Moria%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=15782714165"
+            ],
+            "uploadDate": "2023-12-08T16:53:14Z",
+            "fileSize": "14.69 GB"
+        },
+        {
+            "title": "The Lord of the Rings Return to Moria v1.3.4 | Portable",
+            "uris": [
+                "magnet:?xt=urn:btih:JRTBW6EVEA4GWO36M6IZ5GNCCF6E7566&dn=The.Lord.of.the.Rings.Return.to.Moria.v1.3.4-P2P&tr=udp://public.popcorn-tracker.org:6969/announce&xl=15927904480"
+            ],
+            "uploadDate": "2024-10-19T14:11:37Z",
+            "fileSize": "14.83 GB"
+        },
+        {
+            "title": "Hail to the Rainbow v1.0.1 (Demo) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:7TWEREU6O52C4YIE22FMKS4U4ZORVSY4&dn=Hail%20to%20the%20Rainbow%20Demo%20v1.0.1.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=2452935426"
+            ],
+            "uploadDate": "2024-10-19T13:54:37Z",
+            "fileSize": "2.28 GB"
+        },
+        {
+            "title": "Spirit City: Lofi Sessions v1.5.1 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:6TMJAWWX5KYDIN4NJQWJCL4VQB2D7LQH&dn=Spirit.City.Lofi.Sessions%20v1.5.1.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=1592643661"
+            ],
+            "uploadDate": "2024-10-19T13:53:33Z",
+            "fileSize": "1.48 GB"
+        },
+        {
+            "title": "SurrounDead (Build 16071215) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:PHHKTWBVWPIYTCXJ36ARUB7IDG43GSSI&dn=SurrounDead.Build.16071215.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=952963703"
+            ],
+            "uploadDate": "2024-10-19T13:53:21Z",
+            "fileSize": "908 MB"
+        },
+        {
+            "title": "Quasimorph v0.8.182s | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:WZAR7VYZFIEYD3XSRKTDFDGSKRRNLY26&dn=Quasimorph%20v0.8.182s.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=787925877"
+            ],
+            "uploadDate": "2024-10-19T13:53:46Z",
+            "fileSize": "751 MB"
+        },
+        {
+            "title": "Cornucopia v7.8 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:4DKGOWKGUMHIDGZ3EUJOR7W5PD4LLAZY&dn=Cornucopia%20v7.8.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=692778030"
+            ],
+            "uploadDate": "2024-10-19T13:54:58Z",
+            "fileSize": "660 MB"
+        },
+        {
+            "title": "Dome Keeper v4.1.0 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:YFWE5J7JDOAO25YI6UCH7K3EIJTT26XM&dn=Dome%20Keeper%20v4.1.0.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=632644348"
+            ],
+            "uploadDate": "2024-10-19T13:54:51Z",
+            "fileSize": "603 MB"
+        },
+        {
+            "title": "Star Traders Frontiers v358 (Build 16081775) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:J7R4DP3TDWLNPXEGSHE3GTLCZWAJKOYK&dn=Star.Traders.Frontiers%20v3.4.9.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=600347593"
+            ],
+            "uploadDate": "2024-10-19T13:53:27Z",
+            "fileSize": "572 MB"
+        },
+        {
+            "title": "Angola 86 v1.40 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:VXALPHSAPBFX2IPALZFMKLRRHIIAT6D6&dn=Angola.86.v1.40.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=538398579"
+            ],
+            "uploadDate": "2024-10-19T13:55:04Z",
+            "fileSize": "513 MB"
+        },
+        {
+            "title": "Impaler (Build 16009516) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:DF3NF2TEDWFCHOGMGNAOZ7BJY7ISVKLJ&dn=Impaler.Build.16009516.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=420682897"
+            ],
+            "uploadDate": "2024-10-19T13:54:29Z",
+            "fileSize": "401 MB"
+        },
+        {
+            "title": "Farm Together 2 (Build 16166328) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:5RF4462A5TJXVA6FDADNAT7RYXMOZQ3G&dn=Farm.Together.2.Build.16166328.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=392673245"
+            ],
+            "uploadDate": "2024-10-26T13:03:48Z",
+            "fileSize": "374 MB"
+        },
+        {
+            "title": "Root (Build 16041686) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:FEAJLASLXCCLSB6IZYH6AJ2FEAQQRAWA&dn=Root.Build.16041686.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=297088311"
+            ],
+            "uploadDate": "2024-10-19T13:53:40Z",
+            "fileSize": "283 MB"
+        },
+        {
+            "title": "Time Wasters (Build 12620508) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:BGVGIEOGTO63OGJTCJ3QFVR7AZWE7WWP&dn=Time.Wasters.Build.12620508.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=296893078"
+            ],
+            "uploadDate": "2024-10-19T13:53:12Z",
+            "fileSize": "283 MB"
+        },
+        {
+            "title": "Pile Up! v0.6.26 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:755SXSJCJICGGZ524UAY6GCVR7CDAXK2&dn=Pile.Up%20v0.6.26.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=176634392"
+            ],
+            "uploadDate": "2024-10-19T13:54:10Z",
+            "fileSize": "168 MB"
+        },
+        {
+            "title": "Meme Mayhem v0.20.200 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:6FATKJMR3Q3MLDENIAN3WPPYINQAEDZN&dn=Meme.Mayhem%20v0.20.200.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=132502961"
+            ],
+            "uploadDate": "2024-10-19T13:54:18Z",
+            "fileSize": "126 MB"
+        },
+        {
+            "title": "CarX Street | RePack от Igruha",
+            "uris": [
+                "magnet:?xt=urn:btih:QNXEIWPQPB4XRB3EMGZAJWOQMIHNS3CE&dn=CarX%20Street%20by%20Igruha&tr=udp://tracker.opentrackr.org:1337/announce&xl=13674239687"
+            ],
+            "uploadDate": "2024-10-11T03:13:36Z",
+            "fileSize": "12.73 GB"
+        },
+        {
+            "title": "CarX Street v1.1.0 (Build 16098053) | Portable",
+            "uris": [
+                "magnet:?xt=urn:btih:EQNHPHO7Z3IA5QN4NDXB3EQMELILCTZX&dn=CarX%20Street%20%282024%29&tr=udp://tracker.opentrackr.org:1337/announce&xl=16969364575"
+            ],
+            "uploadDate": "2024-10-19T12:27:22Z",
+            "fileSize": "15.80 GB"
+        },
+        {
+            "title": "Sea of Thieves v2.124.3428.2 | Portable",
+            "uris": [
+                "magnet:?xt=urn:btih:UADNOVRH6TR5I557Y5HNHGZRHZKTFZ65&dn=Sea%20Of%20Thieves%20Portable%20by%20Pioneer&tr=udp://tracker.openbittorrent.com:80/announce&xl=108642241120"
+            ],
+            "uploadDate": "2023-10-30T20:23:43Z",
+            "fileSize": "101.18 GB"
+        },
+        {
+            "title": "Sea of Thieves v2.134.6221.0 | P2P",
+            "uris": [
+                "magnet:?xt=urn:btih:ORRJ6ELZ2ZQED6ACIJ7RZEEJHUYFHRCB&dn=Sea%20of%20Thieves%20%28v2.134.6221.0%29&tr=https://crackstatus.net/bt/announce.php?uk=H4ZXSqU9gN&xl=83353681994"
+            ],
+            "uploadDate": "2024-10-18T17:18:01Z",
+            "fileSize": "77.62 GB"
+        },
+        {
+            "title": "Funko Fusion v1.2.3.137492 (Build 16100416) | P2P",
+            "uris": [
+                "magnet:?xt=urn:btih:KH2JLPKN4OOURZWUWB675IPXM6RPDYYR&dn=Funko.Fusion.v1.2.3.137492-RUNE&tr=udp://public.popcorn-tracker.org:6969/announce&xl=46633817677"
+            ],
+            "uploadDate": "2024-10-19T04:00:13Z",
+            "fileSize": "43.43 GB"
+        },
+        {
+            "title": "The Precinct v12729 (Demo) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:4ZLD25O4LYKZTP3RFR6XPB5CPJTLBBKM&dn=The%20Precinct%20Demo%20v12729.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=2989146015"
+            ],
+            "uploadDate": "2024-10-18T23:16:59Z",
+            "fileSize": "2.78 GB"
+        },
+        {
+            "title": "Breakwaters v0.9.77 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:SPDTDZAMBDMF2CWMLISGL6DF6RZGUNHJ&dn=Breakwaters.v0.9.77.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=1914508417"
+            ],
+            "uploadDate": "2024-10-18T23:18:53Z",
+            "fileSize": "1.78 GB"
+        },
+        {
+            "title": "Eden Crafters v0.45l (Build 16140347) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:R32TITI35OZJYP6WKWZIL4QVXJ2WG3RI&dn=Eden.Crafters%20v0.45j.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=960446817"
+            ],
+            "uploadDate": "2024-10-22T11:23:55Z",
+            "fileSize": "915 MB"
+        },
+        {
+            "title": "Unexplored 2 The Wayfarer's Legacy v1.7.15 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:4H2H2CZNH5NP5BC5JCZCE4J3P34PPT7Z&dn=Unexplored%202%20v1.7.15.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=605166907"
+            ],
+            "uploadDate": "2024-10-24T11:13:21Z",
+            "fileSize": "577 MB"
+        },
+        {
+            "title": "Scarmonde (Build 16057776) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:V75OAHE2HLQPUBRQW5MT2DPYJC6OO3MY&dn=Scarmonde.Build.16057776.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=433183525"
+            ],
+            "uploadDate": "2024-10-18T23:17:30Z",
+            "fileSize": "413 MB"
+        },
+        {
+            "title": "First Feudal v1.5.5 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:N2BLXBTPTTUHGMECTTZHOQYOMSUOR5O7&dn=First%20Feudal%20v1.5.5.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=409877470"
+            ],
+            "uploadDate": "2024-10-18T23:18:11Z",
+            "fileSize": "390 MB"
+        },
+        {
+            "title": "Hex of Steel v7.7.18 (Build 16113485) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:RE77GB7OK3WVRN4J46BOTFJVNKRZHKWE&dn=Hex.of.Steel.Build.16113485.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=404565692"
+            ],
+            "uploadDate": "2024-10-22T11:23:41Z",
+            "fileSize": "385 MB"
+        },
+        {
+            "title": "Core Keeper v1.0.0.14 (Build 16065825) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:P72T3FVOJYXYB3SCLS3RVQ6X3AEV2NAC&dn=Core%20Keeper%20v1.0.0.14.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=369794141"
+            ],
+            "uploadDate": "2024-10-18T23:18:34Z",
+            "fileSize": "352 MB"
+        },
+        {
+            "title": "Mall Craze v0.3.3 (Build 16055524) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:SWWFKJVLFAJMJND5GSYTTBXWWTUREZ57&dn=Mall.Craze%20v0.3.3%20%28Build%2016055524%29.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=316538158"
+            ],
+            "uploadDate": "2024-10-18T23:17:48Z",
+            "fileSize": "301 MB"
+        },
+        {
+            "title": "Caves of Lore v1.6.9.1 (77160) | GOG",
+            "uris": [
+                "magnet:?xt=urn:btih:7GHXLAULUV66UHACFZ6AUTCMTISS3E4B&dn=setup_caves_of_lore_1.6.9.1_%2877160%29.exe&tr=http://bt2.t-ru.org/ann&xl=148162264"
+            ],
+            "uploadDate": "2024-10-25T19:24:07Z",
+            "fileSize": "141 MB"
+        },
+        {
+            "title": "Night Raider v1.55 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:WODVSKUWVSMH3CJUKVYKJLFWRU5ZZCJF&dn=Night.Raider%20v1.55.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=106971785"
+            ],
+            "uploadDate": "2024-10-18T23:17:40Z",
+            "fileSize": "102 MB"
+        },
+        {
+            "title": "Shotgun King: The Final Checkmate (Build 16082783) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:OSWYPYD5XMJJHKCBNBZAKBPRA34XEMU7&dn=Shotgun.King.The.Final.Checkmate.Build.16082783.rar&tr=udp://tracker.opentrackr.org:1337/announce&xl=103898725"
+            ],
+            "uploadDate": "2024-10-20T11:47:45Z",
+            "fileSize": "99 MB"
+        },
+        {
+            "title": "Gatekeeper v0.8.5.11 | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:KUS6CVW7UXZWTY4SA6UJN5RAUJZQTU52&dn=Gatekeeper%2014.10.24.7z&tr=http://bt2.t-ru.org/ann&xl=1091902365"
+            ],
+            "uploadDate": "2024-10-18T22:47:46Z",
+            "fileSize": "1.01 GB"
+        },
+        {
+            "title": "Valkyrie of Phantasm (Build 16076941) | P2P",
+            "uris": [
+                "magnet:?xt=urn:btih:M6YSMYV67EWTMV6EDR4IZLOADC65RAIH&dn=Valkyrie.Of.Phantasm-SKIDROW&xl=9235819970"
+            ],
+            "uploadDate": "2024-10-18T19:41:51Z",
+            "fileSize": "8.60 GB"
+        },
+        {
+            "title": "Teenage Mutant Ninja Turtles: Mutants Unleashed (Build 16053537) | Portable",
+            "uris": [
+                "magnet:?xt=urn:btih:JRYA5S7OVZTQY3ON7FENIHQVJORWZFXT&dn=Teenage%20Mutant%20Ninja%20Turtles%20Mutants%20Unleashed&tr=http://bt4.t-ru.org/ann&xl=29339049560"
+            ],
+            "uploadDate": "2024-10-19T22:20:50Z",
+            "fileSize": "27.32 GB"
+        },
+        {
+            "title": "DRAGON QUEST MONSTERS: The Dark Prince (Build 15884629) | P2P",
+            "uris": [
+                "magnet:?xt=urn:btih:LNQAE5BZRS26QZGECF7KD45O262VQ5RW&dn=DRAGON.QUEST.MONSTERS.The.Dark.Prince-TENOKE&xl=7167633345"
+            ],
+            "uploadDate": "2024-10-18T09:51:41Z",
+            "fileSize": "6.67 GB"
+        },
+        {
+            "title": "Arizona Sunshine Remake (Build 16061772) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:TWM6N437DPI6YK6XB3MQVB4QUOROK3PD&dn=Arizona.Sunshine.Remake.rar&tr=udp://tracker.torrent.eu.org:451/announce&xl=19182814511"
+            ],
+            "uploadDate": "2024-10-18T10:05:34Z",
+            "fileSize": "17.86 GB"
+        },
+        {
+            "title": "Sniper Killer (Build 16088552) | Архив",
+            "uris": [
+                "magnet:?xt=urn:btih:ZT3RN5BX5VIDKPWPW5PWJZNXNFY54XSS&dn=Sniper.Killer.rar&xl=1932402577"
+            ],
+            "uploadDate": "2024-10-18T10:21:35Z",
+            "fileSize": "1.79 GB"
+        },
+        {
+            "title": "My Nights at Singing Monsters (Build 15960479) | P2P",
+            "uris": [
+                "magnet:?xt=urn:btih:HEHIDEZZKP4PXVTSDRDXJDKXI2H73HJC&dn=My.Nights.at.Singing.Monsters-TENOKE&tr=udp://tracker.torrent.eu.org:451/announce&xl=3149142113"
+            ],
+            "uploadDate": "2024-10-18T09:33:00Z",
+            "fileSize": "2.93 GB"
+        },
+        {
+            "title": "Love Love 2024: The Love Election (Build 15987544) | P2P",
+            "uris": [
+                "magnet:?xt=urn:btih:LRZKIKYUSZMHLQCLHG57OAXJ27WFQKUD&dn=Love.Love.2024.The.Love.Election-TENOKE&xl=555078133"
+            ],
+            "uploadDate": "2024-10-18T09:43:45Z",
+            "fileSize": "529 MB"
         }
     ]
 }
