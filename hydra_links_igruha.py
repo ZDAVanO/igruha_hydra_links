@@ -236,20 +236,20 @@ namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 
 urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
-# urls = urls[:200]
+urls = urls[6700:6750]
 
-problem_urls = [
-    "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
-    "https://itorrents-igruha.org/14496-sailing-era.html",
-    "https://itorrents-igruha.org/3671-1-126821717.html",
-    "https://itorrents-igruha.org/11642-8-99980.html",
-    "https://itorrents-igruha.org/7793-muse-dash.html",
-    "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
-    "https://itorrents-igruha.org/2576-witchfire.html",
-    "https://itorrents-igruha.org/3821-126821717.html"
+# problem_urls = [
+#     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
+#     "https://itorrents-igruha.org/14496-sailing-era.html",
+#     "https://itorrents-igruha.org/3671-1-126821717.html",
+#     "https://itorrents-igruha.org/11642-8-99980.html",
+#     "https://itorrents-igruha.org/7793-muse-dash.html",
+#     "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
+#     "https://itorrents-igruha.org/2576-witchfire.html",
+#     "https://itorrents-igruha.org/3821-126821717.html"
 
-]
-urls = problem_urls
+# ]
+# urls = problem_urls
 
 
 print(f"Total URLs: {len(urls)}\n")
@@ -261,6 +261,8 @@ data = {
     "downloads": []
 }
 
+# Статистика
+updated_games_stats = 0
 download_options_stats = 0
 no_download_options_stats  = 0
 invalid_pages_stats = 0
@@ -310,7 +312,7 @@ for index, url in enumerate(urls, start=1):
             download_options_stats += 1
         continue
 
-    
+    updated_games_stats += 1
 
     print(f'{index}. {site_game_name} / {site_update_date} / {url}')
 
@@ -369,6 +371,7 @@ with open(CACHE_FILE, 'w', encoding='utf-8') as file:
 # Виведення загальної статистики
 print()
 # print(f"\nTotal URLs: {len(urls)}")
+print(f"Total Updated Games: {updated_games_stats}")
 print(f"Total Download Options: {download_options_stats}")
 print(f"Total Pages with no download options: {no_download_options_stats}")
 print(f"Total Invalid Pages: {invalid_pages_stats}")
