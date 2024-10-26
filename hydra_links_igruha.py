@@ -238,18 +238,18 @@ urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
 # urls = urls[:200]
 
-# problem_urls = [
-#     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
-#     "https://itorrents-igruha.org/14496-sailing-era.html",
-#     "https://itorrents-igruha.org/3671-1-126821717.html",
-#     "https://itorrents-igruha.org/11642-8-99980.html",
-#     "https://itorrents-igruha.org/7793-muse-dash.html",
-#     "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
-#     "https://itorrents-igruha.org/2576-witchfire.html",
-#     "https://itorrents-igruha.org/3821-126821717.html"
+problem_urls = [
+    "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
+    "https://itorrents-igruha.org/14496-sailing-era.html",
+    "https://itorrents-igruha.org/3671-1-126821717.html",
+    "https://itorrents-igruha.org/11642-8-99980.html",
+    "https://itorrents-igruha.org/7793-muse-dash.html",
+    "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
+    "https://itorrents-igruha.org/2576-witchfire.html",
+    "https://itorrents-igruha.org/3821-126821717.html"
 
-# ]
-# urls = problem_urls
+]
+urls = problem_urls
 
 
 print(f"Total URLs: {len(urls)}\n")
@@ -293,6 +293,13 @@ for index, url in enumerate(urls, start=1):
     site_update_date, site_game_name = extract_info_from_page(soup)
 
 
+    # Якщо сторінка не з грою, пропускаємо
+    if not site_update_date or not site_game_name:
+        print(f'{index}. INVALID PAGE: {url}')
+        invalid_pages_stats += 1
+        continue
+
+
     cache_entry = cache.get(url)
     if cache_entry and cache_entry['site_update_date'] == site_update_date:
         # Якщо дані актуальні, беремо з кешу
@@ -303,55 +310,54 @@ for index, url in enumerate(urls, start=1):
             download_options_stats += 1
         continue
 
+    
 
-    if not site_update_date or not site_game_name:
-        print(f'{index}. INVALID PAGE: {url}')
-        invalid_pages_stats += 1
-    else:
-        print(f'{index}. {site_game_name} / {site_update_date} / {url}')
-        download_options = get_download_options(soup)
+    print(f'{index}. {site_game_name} / {site_update_date} / {url}')
 
-        if (not download_options):
-            print("    No download options")
-            no_download_options_stats += 1
+    download_options = get_download_options(soup)
+    # Якщо немає варіантів завантаження, пропускаємо
+    if (not download_options):
+        print("    No download options")
+        no_download_options_stats += 1
+        continue
+
+    # translated_name = translate_text(site_game_name, target_language='en', source_language='auto')
+    translated_name = translate_text(site_game_name, target_language='en', source_language='ru')
+
+    # Новий запис у кеші
+    cache_entry = {
+        "site_update_date": site_update_date,
+        "site_game_name": site_game_name,
+        "download_options": []
+    }
+    
+    for download_option in download_options:
+
+        # title = f"{site_game_name} {download_option['info']}"
+        title = f"{translated_name} {download_option['info']}"
+
+        if (download_option['date']):
+            uploadDate = download_option['date']
         else:
-
-            # translated_name = translate_text(site_game_name, target_language='en', source_language='auto')
-            translated_name = translate_text(site_game_name, target_language='en', source_language='ru')
-
-
-            # Новий запис у кеші
-            cache_entry = {
-                "site_update_date": site_update_date,
-                "site_game_name": site_game_name,
-                "download_options": []
-            }
-            
-
-            for download_option in download_options:
-
-                # title = f"{site_game_name} {download_option['info']}"
-                title = f"{translated_name} {download_option['info']}"
-
-                if (download_option['date']):
-                    uploadDate = download_option['date']
-                else:
-                    uploadDate = site_update_date
-                
-                print(f'    {title} / {uploadDate} / {download_option['fileSize']}')
-
-                download_info = {
-                    "title": title,  # Назва файлу, припустимо, остання частина URL
-                    "uris": [download_option['magnet_link']],
-                    "uploadDate": uploadDate,
-                    "fileSize": download_option['fileSize'],  # Тут можна додати функцію для витягнення розміру файлу
-                }
-                data["downloads"].append(download_info)
-                cache_entry["download_options"].append(download_info)
-                download_options_stats += 1
+            uploadDate = site_update_date
         
-            # Оновлюємо кеш із новими даними для поточного URL
-            cache[url] = cache_entry
+        print(f'    {title} / {uploadDate} / {download_option['fileSize']}')
+
+        download_info = {
+            "title": title,  # Назва файлу, припустимо, остання частина URL
+            "uris": [download_option['magnet_link']],
+            "uploadDate": uploadDate,
+            "fileSize": download_option['fileSize'],  # Тут можна додати функцію для витягнення розміру файлу
+        }
+
+        data["downloads"].append(download_info)
+        cache_entry["download_options"].append(download_info)
+        download_options_stats += 1
+
+    # Оновлюємо кеш із новими даними для поточного URL
+    cache[url] = cache_entry
+
+
 
 
 

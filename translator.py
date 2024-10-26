@@ -88,7 +88,7 @@ def translate_text(text, target_language='en', source_language='auto'):
     
     # Перевіряємо, чи рядок містить неанглійські букви
     if non_english_pattern.search(text):
-        print("TRANSLATE_TEXT")
+        print("(TRANSLATE_TEXT)")
         translated_text = translate_line(text , target_language, source_language, cache=cache)
         result = translated_text
         # result = replace_specific_cyrillic_lookalikes(translated_text)
