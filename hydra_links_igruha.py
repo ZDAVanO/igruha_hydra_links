@@ -15,7 +15,12 @@ from urllib.parse import quote  # Import the quote function for URL encoding
 
 from translator import translate_text
 
-import json
+import logging
+
+logging.basicConfig(filename='parser.log', 
+                    level=logging.INFO, 
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    filemode='w')
 
 # Форматує розмір у байтах у зручний формат (MB або GB).
 def format_size(size_in_bytes):
@@ -83,9 +88,10 @@ def make_magnet_from_bytes(torrent_bytes):
         # return magnet_link, formatted_date
         return magnet_link, formatted_date, total_length
 
-    except:
+    except Exception as e:
         # У випадку будь-якої помилки повертаємо None
-        print('DEAD_TORRENT')
+        # print('DEAD_TORRENT')
+        logging.error(f'DEAD_TORRENT: {e}')
         return None, None, None
 
 
@@ -175,7 +181,8 @@ def get_download_options(soup):
             magnet_link, torrent_date, torrent_size_bytes = make_magnet_from_bytes(torrent_bytes.getvalue())
 
         except requests.RequestException as e:
-            print(f"Failed to download {torrent_url}: {e}")
+            # print(f"Failed to download {torrent_url}: {e}")
+            logging.error(f"Failed to download {torrent_url}: {e}")
             magnet_link, torrent_date, torrent_size_bytes = None, None, None  # Встановлюємо значення None, якщо не вдалося завантажити
 
         if magnet_link:
@@ -260,7 +267,7 @@ urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 # urls = problem_urls
 
 print(f"Total URLs: {len(urls)}\n")
-
+logging.info(f"Total URLs: {len(urls)}")
 
 # Структура для збереження даних
 data = {
@@ -304,7 +311,8 @@ for index, url in enumerate(urls, start=1):
 
     # Якщо сторінка не з грою, пропускаємо
     if not site_update_date or not site_game_name:
-        print(f'{index}. INVALID PAGE: {url}')
+        # print(f'{index}. INVALID PAGE: {url}')
+        logging.warning(f'{index}. INVALID PAGE: {url}')
         invalid_pages_stats += 1
         continue
 
@@ -312,21 +320,25 @@ for index, url in enumerate(urls, start=1):
     cache_entry = cache.get(url)
     if cache_entry and cache_entry['site_update_date'] == site_update_date:
         # Якщо дані актуальні, беремо з кешу
-        print(f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}')
+        # print(f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}')
+        logging.info(f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}')
         for cached_download in cache_entry["download_options"]:
-            print(f'    {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}')
+            # print(f'    {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}')
+            logging.info(f'    {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}')
             data["downloads"].append(cached_download)
             download_options_stats += 1
         continue
 
 
 
-    print(f'{index}. {site_game_name} / {site_update_date} / {url}')
+    # print(f'{index}. {site_game_name} / {site_update_date} / {url}')
+    logging.info(f'{index}. {site_game_name} / {site_update_date} / {url}')
 
     download_options = get_download_options(soup)
     # Якщо немає варіантів завантаження, пропускаємо
     if (not download_options):
-        print("    No download options")
+        # print("    No download options")
+        logging.info("    No download options")
         no_download_options_stats += 1
         continue
 
@@ -353,7 +365,8 @@ for index, url in enumerate(urls, start=1):
         else:
             uploadDate = convert_to_iso_format(site_update_date)
         
-        print(f'    {title} / {uploadDate} / {download_option['fileSize']}')
+        # print(f'    {title} / {uploadDate} / {download_option['fileSize']}')
+        logging.info(f'    {title} / {uploadDate} / {download_option["fileSize"]}')
 
         download_info = {
             "title": title,  # Назва файлу, припустимо, остання частина URL
@@ -379,12 +392,16 @@ with open(CACHE_FILE, 'w', encoding='utf-8') as file:
 
 
 # Виведення загальної статистики
-print()
 # print(f"\nTotal URLs: {len(urls)}")
 print(f"Total Updated Games: {updated_games_stats}")
 print(f"Total Download Options: {download_options_stats}")
 print(f"Total Pages with no download options: {no_download_options_stats}")
 print(f"Total Invalid Pages: {invalid_pages_stats}")
+
+logging.info(f"Total Updated Games: {updated_games_stats}")
+logging.info(f"Total Download Options: {download_options_stats}")
+logging.info(f"Total Pages with no download options: {no_download_options_stats}")
+logging.info(f"Total Invalid Pages: {invalid_pages_stats}")
 
 
 
@@ -394,6 +411,7 @@ file_path = 'hydra_links_igruha.json'
 with open(file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)  
 print(f"\nThe data is saved in file {file_path}")
+logging.info(f"The data is saved in file {file_path}")
 
 
 
@@ -408,7 +426,8 @@ backup_file_path  = os.path.join(backup_dir , backup_filename)
 # Збереження копії у JSON файл
 with open(backup_file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
-print(f"\nThe backup data is saved in file {backup_file_path}")
+print(f"The backup data is saved in file {backup_file_path}")
+logging.info(f"The backup data is saved in file {backup_file_path}")
 
 
 
