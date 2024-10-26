@@ -387,24 +387,28 @@ print(f"Total Pages with no download options: {no_download_options_stats}")
 print(f"Total Invalid Pages: {invalid_pages_stats}")
 
 
-json_dir = 'json'
-os.makedirs(json_dir, exist_ok=True)  # Create the directory if it doesn't exist
 
-current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-filename = f'downloads_{current_time}.json'
-
-file_path = os.path.join(json_dir, filename)
+file_path = 'hydra_links_igruha.json'
 
 # Збереження у JSON файл
 with open(file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)  
-print()
-print(f"The data is saved in file {file_path}")
+print(f"\nThe data is saved in file {file_path}")
 
 
 
 
+backup_dir  = 'json'
+os.makedirs(backup_dir , exist_ok=True)  # Create the directory if it doesn't exist
 
+current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+backup_filename  = f'backup_{current_time}.json'
+backup_file_path  = os.path.join(backup_dir , backup_filename)
+
+# Збереження копії у JSON файл
+with open(backup_file_path, 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+print(f"\nThe backup data is saved in file {backup_file_path}")
 
 
 
