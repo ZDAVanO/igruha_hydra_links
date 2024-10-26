@@ -13,6 +13,7 @@ import hashlib
 import base64
 from urllib.parse import quote  # Import the quote function for URL encoding
 
+from translator import translate_text
 
 # Форматує розмір у байтах у зручний формат (MB або GB).
 def format_size(size_in_bytes):
@@ -25,7 +26,6 @@ def format_size(size_in_bytes):
     else:
         return f"{size_in_bytes} bytes"  # Якщо менше 1 МБ
 
-no_date_in_torrent = 0
 
 def make_magnet_from_bytes(torrent_bytes):
     try:
@@ -77,7 +77,6 @@ def make_magnet_from_bytes(torrent_bytes):
             formatted_date = datetime.fromtimestamp(creation_date).strftime('%Y-%m-%dT%H:%M:%SZ')
         else:
             print('Date Not Available in Torrent File')
-            no_date_in_torrent += 1
 
         # return magnet_link, formatted_date
         return magnet_link, formatted_date, total_length
@@ -244,8 +243,21 @@ root = ET.fromstring(sitemap_content)
 namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 
 urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
-# urls = urls[4000:4010]
-print(f"\nTotal URLs: {len(urls)}")
+
+# urls = urls[660:]
+
+# problem_urls = [
+#     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
+#     "https://itorrents-igruha.org/14496-sailing-era.html",
+#     "https://itorrents-igruha.org/3671-1-126821717.html",
+#     "https://itorrents-igruha.org/11642-8-99980.html",
+#     "https://itorrents-igruha.org/7793-muse-dash.html",
+
+# ]
+# urls = problem_urls
+
+
+print(f"Total URLs: {len(urls)}\n")
 
 
 # Структура для збереження даних
@@ -254,6 +266,7 @@ data = {
     "downloads": []
 }
 
+download_options = 0
 no_download_options = 0
 
 # Пройдемо по кожному URL та дістанемо дані
@@ -274,9 +287,13 @@ for index, url in enumerate(urls, start=1):
             print("    No download options")
             no_download_options += 1
         else:
+
+            translated_name = translate_text(site_game_name)
+
             for download_option in download_options:
 
-                title = f"{site_game_name} {download_option['info']}"
+                # title = f"{site_game_name} {download_option['info']}"
+                title = f"{translated_name} {download_option['info']}"
 
                 if (download_option['date']):
                     uploadDate = download_option['date']
@@ -292,12 +309,15 @@ for index, url in enumerate(urls, start=1):
                     "fileSize": download_option['size'],  # Тут можна додати функцію для витягнення розміру файлу
                 }
                 data["downloads"].append(download_info)
+                no_download_options += 1
 
 
-print(f"\nTotal URLs: {len(urls)}")
-print(f"Total Invalid Pages: {len(urls) - len(data['downloads'])}")
+# Виведення загальної статистики
+print()
+# print(f"\nTotal URLs: {len(urls)}")
+# print(f"Total Invalid Pages: {len(urls) - len(data['downloads'])}") #виводить відємні значення
+print(f"Total Download Options: {download_options}")
 print(f"Total Pages with no download options: {no_download_options}")
-print(f"Total Torrents with no date: {no_date_in_torrent}")
 
 
 
@@ -319,10 +339,24 @@ print(f"The data is saved in file {file_path}")
 
 
 
-# url = "https://itorrents-igruha.org/8095-believe.html"
+
+
+
+
+
+
+
+
+
+
+# url = "https://itorrents-igruha.org/14496-sailing-era.html"
+# #     "https://itorrents-igruha.org/14496-sailing-era.html"
+
+
 # page_response = requests.get(url)
 # soup = BeautifulSoup(page_response.text, 'html.parser')
 # torrent_data = get_download_options(soup)
+
 
 # for data in torrent_data:
 #     # print(f"Download Torrent page: {data['link']}")
