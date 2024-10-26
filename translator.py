@@ -33,12 +33,12 @@ def translate_line(text, target_language='en', source_language='auto', cache={})
 
     # Перевіряємо, чи є текст вже в кеші
     if text in cache:
-        print(f'(TRANSLATE_TEXT) CACHE HIT FOR "{text}"')
+        # print(f'(TRANSLATE_TEXT) CACHE HIT FOR "{text}"')
         return cache[text]
 
     url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={source_language}&tl={target_language}&dt=t&q={requests.utils.quote(text)}"
 
-    print(f'(TRANSLATE_TEXT) "{text}"')
+    # print(f'(TRANSLATE_TEXT) "{text}"')
     
     try:
         response = requests.get(url)
