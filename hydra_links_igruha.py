@@ -265,7 +265,7 @@ namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 
 urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
-urls = urls[:200] # 200 перших URL для тестування
+urls = urls[:100] # 200 перших URL для тестування
 
 # problem_urls = [
 #     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
