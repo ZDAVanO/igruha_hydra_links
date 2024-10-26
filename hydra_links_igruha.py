@@ -265,7 +265,7 @@ namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 
 urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
-# urls = urls[6700:6750]
+urls = urls[:200] # 200 перших URL для тестування
 
 # problem_urls = [
 #     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
@@ -487,20 +487,14 @@ print(f"The backup data is saved in file {backup_file_path}")
 logging.info(f"The backup data is saved in file {backup_file_path}")
 
 
-
-
-
-
-
+# ########################################################################################
 
 # url = "https://itorrents-igruha.org/14496-sailing-era.html"
 # #     "https://itorrents-igruha.org/14496-sailing-era.html"
 
-
 # page_response = requests.get(url)
 # soup = BeautifulSoup(page_response.text, 'html.parser')
 # torrent_data = get_download_options(soup)
-
 
 # for data in torrent_data:
 #     # print(f"Download Torrent page: {data['link']}")

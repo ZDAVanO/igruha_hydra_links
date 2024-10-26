@@ -26,13 +26,12 @@ jobs:
     - name: Run the script
       run: |
         python hydra_links_igruha.py
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git pull --rebase  # Pull the latest changes from the remote repository
         git add .
         git commit -m "Update JSON file with latest torrent data" || echo "No changes to commit"
         git push
