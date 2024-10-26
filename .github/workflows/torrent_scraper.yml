@@ -25,7 +25,7 @@ jobs:
 
     - name: Run the script
       run: |
-        python ваш_скрипт.py
+        python hydra_links_igruha.py
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
