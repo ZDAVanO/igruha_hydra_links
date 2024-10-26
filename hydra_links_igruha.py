@@ -246,18 +246,18 @@ urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
 # urls = urls[6700:6750]
 
-problem_urls = [
-    "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
-    "https://itorrents-igruha.org/14496-sailing-era.html",
-    "https://itorrents-igruha.org/3671-1-126821717.html",
-    "https://itorrents-igruha.org/11642-8-99980.html",
-    "https://itorrents-igruha.org/7793-muse-dash.html",
-    "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
-    "https://itorrents-igruha.org/2576-witchfire.html",
-    "https://itorrents-igruha.org/3821-126821717.html"
+# problem_urls = [
+#     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
+#     "https://itorrents-igruha.org/14496-sailing-era.html",
+#     "https://itorrents-igruha.org/3671-1-126821717.html",
+#     "https://itorrents-igruha.org/11642-8-99980.html",
+#     "https://itorrents-igruha.org/7793-muse-dash.html",
+#     "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
+#     "https://itorrents-igruha.org/2576-witchfire.html",
+#     "https://itorrents-igruha.org/3821-126821717.html"
 
-]
-urls = problem_urls
+# ]
+# urls = problem_urls
 
 
 print(f"Total URLs: {len(urls)}\n")
