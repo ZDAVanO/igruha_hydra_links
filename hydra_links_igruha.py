@@ -375,8 +375,9 @@ for index, url in enumerate(urls, start=1):
     
     for download_option in download_options:
 
-        # title = f"{site_game_name} {download_option['info']}"
-        title = f"{translated_name} {download_option['info']}"
+        # title = f"{translated_name} {download_option['info']}"
+        title = f"{translated_name} {download_option['info'].replace('от', 'by')}"
+        
 
         if (download_option['date']):
             uploadDate = download_option['date']

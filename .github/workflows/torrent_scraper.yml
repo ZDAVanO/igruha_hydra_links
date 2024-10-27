@@ -27,6 +27,15 @@ jobs:
       run: |
         python hydra_links_igruha.py
 
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: scraped-data
+        path: |
+          hydra_links_igruha.json
+          parser.log
+          cache/
+
     - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
@@ -37,12 +46,3 @@ jobs:
         git add .
         git commit -m "Update JSON file with latest torrent data" || echo "No changes to commit"
         git push
-    
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: scraped-data
-        path: |
-          hydra_links_igruha.json
-          parser.log
-          cache/
