@@ -336,7 +336,7 @@ def process_url_igruha(index, url):
 
         for cached_download in cache_entry["download_options"]:
 
-            cache_dn_option_log = f'      {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}'
+            cache_dn_option_log = f'       {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}'
             print(cache_dn_option_log)
             logging.info(cache_dn_option_log)
 
@@ -386,7 +386,7 @@ def process_url_igruha(index, url):
         else:
             uploadDate = date_to_iso(site_update_date)
         
-        dn_option_log = f'      {title} / {uploadDate} / {download_option["fileSize"]}'
+        dn_option_log = f'       {title} / {uploadDate} / {download_option["fileSize"]}'
         print(dn_option_log)
         logging.info(dn_option_log)
 
