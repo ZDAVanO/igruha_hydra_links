@@ -274,7 +274,10 @@ def print_stats(stats):
     for stat_name, stat_value in stats.items():
 
         if isinstance(stat_value, list):
+
             output_text = f"{stat_name.replace('_', ' ').title()}: {len(stat_value)}"
+            print(output_text)
+            logging.info(output_text)
 
             for element in stat_value:
                 print(f" - {element}")
@@ -282,8 +285,8 @@ def print_stats(stats):
 
         else:
             output_text = f"{stat_name.replace('_', ' ').title()}: {stat_value}"
-        print(output_text)
-        logging.info(output_text)
+            print(output_text)
+            logging.info(output_text)
 
 
 
@@ -317,11 +320,11 @@ def process_url_igruha(index, url):
     # Якщо сторінка не з грою, пропускаємо
     if not site_update_date or not site_game_name:
 
-        invalid_page_log = f'{index}. INVALID PAGE: {url}'
+        invalid_page_log = f'{index}. (INVALID_PAGE) {url}'
         print(invalid_page_log)
         logging.warning(invalid_page_log)
 
-        stats["invalid_pages"].append(url)
+        stats["invalid_pages"] += 1
         return
 
     cache_entry = cache.get(url)
@@ -425,7 +428,7 @@ def process_url_igruha(index, url):
 
 if not config.test_problem_urls:
     urls = get_urls_from_sitemap(config.SITEMAP_URL)
-    # urls = urls[:100] # 200 перших URL для тестування
+    urls = urls[:200] # 200 перших URL для тестування
 else:
     urls = config.problem_urls
 
@@ -444,7 +447,7 @@ stats = {
     "updated_games": [],
     "download_options": 0,
     "no_download_options": 0,
-    "invalid_pages": [],
+    "invalid_pages": 0,
     "error_connecting": [],
 }
 
