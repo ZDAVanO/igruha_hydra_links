@@ -107,6 +107,8 @@ def parse_size_info(size_text):
         return "N/A", "NO_INFO"  # Якщо не знайдено відповідності
 
 
+
+
 def fetch_dl_opts_igruha(soup):
 
     # Список для збереження результатів
@@ -184,8 +186,6 @@ def fetch_dl_opts_igruha(soup):
     return torrent_info_list
 
 
-
-
 def extract_date_title_igruha(soup):
     # Витягування дати та часу
     site_update_date = None
@@ -204,6 +204,25 @@ def extract_date_title_igruha(soup):
             site_game_title = h1_tag.text.strip()
 
     return site_update_date, site_game_title
+
+
+def translate_text_igruha(text, target_language='en', source_language='ru'):
+
+    # Регулярний вираз для перевірки неанглійських букв
+    non_english_pattern = re.compile(r'[^\x00-\x7F]')
+
+    text = text.replace("’", "'")
+    # text = text.replace("–", "-")
+
+    # Перевіряємо, чи рядок містить неанглійські букви
+    if non_english_pattern.search(text):
+        translated_text = translate_line(text , target_language, source_language)
+        result = translated_text
+    else:
+        # print(f'ALREADY IN ENGLISH ({text})')
+        result = text 
+
+    return result
 
 
 
@@ -229,32 +248,6 @@ def get_urls_from_sitemap(sitemap_url):
 
 
 
-
-def translate_text_igruha(text, target_language='en', source_language='ru'):
-
-    # Регулярний вираз для перевірки неанглійських букв
-    non_english_pattern = re.compile(r'[^\x00-\x7F]')
-
-    text = text.replace("’", "'")
-    # text = text.replace("–", "-")
-
-    # Перевіряємо, чи рядок містить неанглійські букви
-    if non_english_pattern.search(text):
-        translated_text = translate_line(text , target_language, source_language)
-        result = translated_text
-    else:
-        # print(f'ALREADY IN ENGLISH ({text})')
-        result = text 
-
-    return result
-
-
-
-
-
-
-
-
 def initialize_cache():
     """Ініціалізує кеш, завантажуючи дані з файлу або створює порожній словник."""
     os.makedirs(config.CACHE_DIR, exist_ok=True)  # Створення директорії кешу, якщо не існує
@@ -264,8 +257,6 @@ def initialize_cache():
     else:
         cache = {}
     return cache
-
-
 
 def save_cache(cache, filename=config.CACHE_FILE):
     """Зберігає кеш у файл JSON."""
@@ -277,47 +268,39 @@ def save_cache(cache, filename=config.CACHE_FILE):
 
 
 
-if not config.test_problem_urls:
-    urls = get_urls_from_sitemap(config.SITEMAP_URL)
-    # urls = urls[:100] # 200 перших URL для тестування
-else:
-    urls = config.problem_urls
 
+def print_stats(stats):
+    
+    for stat_name, stat_value in stats.items():
 
+        if isinstance(stat_value, list):
+            output_text = f"{stat_name.replace('_', ' ').title()}: {len(stat_value)}"
 
-print(f"Total URLs: {len(urls)}\n")
-logging.info(f"Total URLs: {len(urls)}")
+            for element in stat_value:
+                print(f" - {element}")
+                logging.info(f" - {element}") 
 
-# Структура для збереження даних
-data = {
-    "name": config.SITE_NAME,
-    "downloads": []
-}
-
-
-# Статистика
-stats = {
-    "updated_games": 0,
-    "download_options": 0,
-    "no_download_options": 0,
-    "invalid_pages": 0,
-    "error_connecting": 0,
-}
+        else:
+            output_text = f"{stat_name.replace('_', ' ').title()}: {stat_value}"
+        print(output_text)
+        logging.info(output_text)
 
 
 
 
 
 
-cache = initialize_cache()
 
 
 
-# Запускаємо таймер
-start_time = time.time()
 
-# Пройдемо по кожному URL та дістанемо дані
-for index, url in enumerate(urls, start=1):
+
+
+
+
+
+
+def process_url_igruha(index, url):
     try:
         page_response = requests.get(url)
         page_response.raise_for_status()  # викликає помилку, якщо статус не 200
@@ -325,8 +308,8 @@ for index, url in enumerate(urls, start=1):
         print(f'{index}. Error connecting to {url}: {e}')
         logging.error(f'{index}. Error connecting to {url}: {e}')
 
-        stats["error_connecting"] += 1
-        continue
+        stats["error_connecting"].append(url)
+        return
 
     soup = BeautifulSoup(page_response.text, 'html.parser')
     site_update_date, site_game_name = extract_date_title_igruha(soup)
@@ -338,8 +321,8 @@ for index, url in enumerate(urls, start=1):
         print(invalid_page_log)
         logging.warning(invalid_page_log)
 
-        stats["invalid_pages"] += 1
-        continue
+        stats["invalid_pages"].append(url)
+        return
 
     cache_entry = cache.get(url)
     if cache_entry and cache_entry['site_update_date'] == site_update_date:
@@ -350,30 +333,34 @@ for index, url in enumerate(urls, start=1):
 
         for cached_download in cache_entry["download_options"]:
 
-            cache_dn_option_log = f'    {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}'
+            cache_dn_option_log = f'        {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}'
             print(cache_dn_option_log)
             logging.info(cache_dn_option_log)
 
             data["downloads"].append(cached_download)
 
             stats["download_options"] += 1
-        continue
+        return
 
-    game_page_log = f'{index}. {site_game_name} / {site_update_date} / {url}'
-    print(game_page_log)
-    logging.info(game_page_log)
+
 
     download_options = fetch_dl_opts_igruha(soup)
     # Якщо немає варіантів завантаження, пропускаємо
     if (not download_options):
-        print("    No download options")
-        logging.info("    No download options")
+
+        game_page_log = f'{index}. (NO_DOWNLOAD_OPTIONS) {site_game_name} / {site_update_date} / {url}'
+        print(game_page_log)
+        logging.info(game_page_log)
 
         stats["no_download_options"] += 1
-        continue
+        return
 
     # якщо дані не збережені у кеші, та є опції завантаження
-    stats["updated_games"] += 1
+    game_page_log = f'{index}. (UPDATED) {site_game_name} / {site_update_date} / {url}'
+    print(game_page_log)
+    logging.info(game_page_log)
+
+    stats["updated_games"].append(game_page_log)
 
     # translated_name = translate_text_igruha(site_game_name, target_language='en', source_language='auto')
     translated_name = translate_text_igruha(site_game_name, target_language='en', source_language='ru')
@@ -396,7 +383,7 @@ for index, url in enumerate(urls, start=1):
         else:
             uploadDate = date_to_iso(site_update_date)
         
-        dn_option_log = f'    {title} / {uploadDate} / {download_option["fileSize"]}'
+        dn_option_log = f'        {title} / {uploadDate} / {download_option["fileSize"]}'
         print(dn_option_log)
         logging.info(dn_option_log)
 
@@ -417,16 +404,66 @@ for index, url in enumerate(urls, start=1):
 
 
 
-print()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if not config.test_problem_urls:
+    urls = get_urls_from_sitemap(config.SITEMAP_URL)
+    # urls = urls[:100] # 200 перших URL для тестування
+else:
+    urls = config.problem_urls
+
+print(f"Total URLs: {len(urls)}\n")
+logging.info(f"Total URLs: {len(urls)}")
+
+
+# Структура для збереження даних
+data = {
+    "name": config.SITE_NAME,
+    "downloads": []
+}
+
+# Структура для збереження статистики
+stats = {
+    "updated_games": [],
+    "download_options": 0,
+    "no_download_options": 0,
+    "invalid_pages": [],
+    "error_connecting": [],
+}
+
+
+
+cache = initialize_cache()
+
+# Запускаємо таймер
+start_time = time.time()
+
+
+for index, url in enumerate(urls, start=1):
+    process_url_igruha(index, url)
 
 
 # Закінчуємо таймер
 end_time = time.time()
-execution_time = end_time - start_time
-print(f'Execution time: {execution_time:.2f} seconds')
-logging.info(f'Execution time: {execution_time:.2f} seconds')
-
+print(f'Execution time: {(end_time - start_time):.2f} seconds')
+logging.info(f'Execution time: {(end_time - start_time):.2f} seconds')
 
 
 # Збереження кешу у файл після виконання скрипту
@@ -436,14 +473,7 @@ save_cache(cache, config.CACHE_FILE)
 
 
 
-
-# Виведення статистики
-for stat_name, stat_value in stats.items():
-    print(f"{stat_name.replace('_', ' ').title()}: {stat_value}")
-
-
-
-
+print_stats(stats)
 
 # Збереження у JSON файл
 with open(config.DATA_FILE, 'w', encoding='utf-8') as f:
@@ -464,6 +494,13 @@ with open(backup_file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
 print(f"The backup data is saved in file {backup_file_path}")
 logging.info(f"The backup data is saved in file {backup_file_path}")
+
+
+
+
+
+
+
 
 
 

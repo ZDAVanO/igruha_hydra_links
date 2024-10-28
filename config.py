@@ -1,6 +1,6 @@
 import os
 
-SITE_NAME = "Torrents-Igruha"
+SITE_NAME = "Torrents-Igruha" # "Torrents-Igruha" "Igruha" "TI"
 
 SITEMAP_URL = 'https://itorrents-igruha.org/sitemap.xml'
 
@@ -14,7 +14,7 @@ DATA_FILE = 'hydra_links_igruha.json'
 LOG_FILE = 'parser.log'
 
 # If True, the parser will only parse problem_urls
-test_problem_urls = False
+test_problem_urls = False # True False
 problem_urls = [
     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
     "https://itorrents-igruha.org/14496-sailing-era.html",

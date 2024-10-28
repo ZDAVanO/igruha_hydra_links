@@ -42,6 +42,7 @@ def translate_line(text, target_language='en', source_language='auto'):
 
         cache[text] = translated_text
         save_cache(cache)
+        
         return translated_text
 
     except requests.exceptions.RequestException as e:
