@@ -13,30 +13,26 @@ import hashlib
 import base64
 from urllib.parse import quote  # Import the quote function for URL encoding
 
-from translator import translate_text
+import config
+from utils.translator import translate_line
+from utils.format_utils import date_to_iso, format_size
+
+
 
 import logging
-
 import time
 
-logging.basicConfig(filename='parser.log', 
+
+logging.basicConfig(filename=config.LOG_FILE, 
                     level=logging.INFO, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     filemode='w')
 
-# Форматує розмір у байтах у зручний формат (MB або GB).
-def format_size(size_in_bytes):
-    if size_in_bytes >= 2**30:  # Якщо розмір більший за 1 ГБ
-        size_in_gb = size_in_bytes / (2**30)  # Перетворюємо у Гігабайти
-        return f"{size_in_gb:.2f} GB"
-    elif size_in_bytes >= 2**20:  # Якщо розмір більший за 1 МБ
-        size_in_mb = size_in_bytes / (2**20)  # Перетворюємо у Мегабайти
-        return f"{size_in_mb:.2f} MB"
-    else:
-        return f"{size_in_bytes} bytes"  # Якщо менше 1 МБ
 
 
-def make_magnet_from_bytes(torrent_bytes):
+
+
+def torrent_bytes_to_magnet(torrent_bytes):
     try:
         # Декодування метаданих без збереження у файл
         metadata = bencodepy.decode(torrent_bytes)
@@ -98,9 +94,7 @@ def make_magnet_from_bytes(torrent_bytes):
 
 
 
-
-
-def extract_size_and_info(size_text):
+def parse_size_info(size_text):
     # Шаблон для регулярного виразу
     pattern = r'Размер:\s*([\d.,]+\s*(?:GB|MB|ГБ|МБ|Gb|Mb|Гб|Мб|gb|mb|гб|мб|МВ|МB|Mб))\s*(.*?)(?:\s*\|)?\s*$'
     match = re.search(pattern, size_text)
@@ -113,7 +107,7 @@ def extract_size_and_info(size_text):
         return "N/A", "NO_INFO"  # Якщо не знайдено відповідності
 
 
-def get_download_options(soup):
+def fetch_dl_opts_igruha(soup):
 
     # Список для збереження результатів
     torrent_info_list = []
@@ -153,7 +147,7 @@ def get_download_options(soup):
 
 
 
-            site_size, name_details = extract_size_and_info(size_and_info.get_text(strip=True))
+            site_size, name_details =  parse_size_info(size_and_info.get_text(strip=True))
 
             # Завантаження торрент файлу
             torrent_url = download_page_link['href']
@@ -166,8 +160,8 @@ def get_download_options(soup):
                 torrent_bytes = BytesIO(response.content)
 
                 # Отримання магнет-посилання
-                # magnet_link, t_size, t_date = make_magnet_from_bytes(torrent_bytes.getvalue())
-                magnet_link, torrent_date, torrent_size_bytes = make_magnet_from_bytes(torrent_bytes.getvalue())
+                # magnet_link, t_size, t_date = torrent_bytes_to_magnet(torrent_bytes.getvalue())
+                magnet_link, torrent_date, torrent_size_bytes = torrent_bytes_to_magnet(torrent_bytes.getvalue())
 
             except requests.RequestException as e:
                 print(f"Failed to download {torrent_url}: {e}")
@@ -191,11 +185,8 @@ def get_download_options(soup):
 
 
 
-def convert_to_iso_format(date_str, date_format="%d.%m.%Y, %H:%M"):
-    parsed_date = datetime.strptime(date_str, date_format)
-    return parsed_date.strftime("%Y-%m-%dT%H:%M:%SZ")
 
-def extract_info_from_page(soup):
+def extract_date_title_igruha(soup):
     # Витягування дати та часу
     site_update_date = None
     article_info = soup.find('div', {'id': 'article-film-full-info'})
@@ -217,6 +208,45 @@ def extract_info_from_page(soup):
 
 
 
+def get_urls_from_sitemap(sitemap_url):
+    try:
+        response = requests.get(sitemap_url)
+        response.raise_for_status()  # Перевірка статусу відповіді, кине помилку, якщо статус не 200
+        sitemap_content = response.content
+    except requests.exceptions.RequestException as e:
+        print(f"Error connecting to {sitemap_url}: {e}")
+        logging.error(f"Error connecting to {sitemap_url}: {e}")
+        exit(1)  # Завершення програми з кодом 1 для позначення помилки
+
+    # Парсинг XML для витягнення всіх URL
+    root = ET.fromstring(sitemap_content)
+    namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
+
+    urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
+    return urls
+
+
+
+
+
+
+def translate_text_igruha(text, target_language='en', source_language='ru'):
+
+    # Регулярний вираз для перевірки неанглійських букв
+    non_english_pattern = re.compile(r'[^\x00-\x7F]')
+
+    text = text.replace("’", "'")
+    # text = text.replace("–", "-")
+
+    # Перевіряємо, чи рядок містить неанглійські букви
+    if non_english_pattern.search(text):
+        translated_text = translate_line(text , target_language, source_language)
+        result = translated_text
+    else:
+        # print(f'ALREADY IN ENGLISH ({text})')
+        result = text 
+
+    return result
 
 
 
@@ -225,82 +255,61 @@ def extract_info_from_page(soup):
 
 
 
+def initialize_cache():
+    """Ініціалізує кеш, завантажуючи дані з файлу або створює порожній словник."""
+    os.makedirs(config.CACHE_DIR, exist_ok=True)  # Створення директорії кешу, якщо не існує
+    if os.path.exists(config.CACHE_FILE):
+        with open(config.CACHE_FILE, 'r', encoding='utf-8') as file:
+            cache = json.load(file)
+    else:
+        cache = {}
+    return cache
+
+
+
+def save_cache(cache, filename=config.CACHE_FILE):
+    """Зберігає кеш у файл JSON."""
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(cache, file, ensure_ascii=False, indent=4)
+    logging.info(f"Cache saved to {filename}")
 
 
 
 
 
+if not config.test_problem_urls:
+    urls = get_urls_from_sitemap(config.SITEMAP_URL)
+    # urls = urls[:100] # 200 перших URL для тестування
+else:
+    urls = config.problem_urls
 
 
-
-
-# Завантаження та парсинг XML
-sitemap_url = 'https://itorrents-igruha.org/sitemap.xml'
-
-try:
-    response = requests.get(sitemap_url)
-    response.raise_for_status()  # Перевірка статусу відповіді, кине помилку, якщо статус не 200
-    sitemap_content = response.content
-except requests.exceptions.RequestException as e:
-    print(f"Error connecting to {sitemap_url}: {e}")
-    logging.error(f"Error connecting to {sitemap_url}: {e}")
-    exit(1)  # Завершення програми з кодом 1 для позначення помилки
-
-
-
-# Парсинг XML для витягнення всіх URL
-root = ET.fromstring(sitemap_content)
-namespaces = {'ns': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
-
-urls = [elem.text for elem in root.findall('.//ns:loc', namespaces)]
-
-# urls = urls[:100] # 200 перших URL для тестування
-
-# problem_urls = [
-#     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
-#     "https://itorrents-igruha.org/14496-sailing-era.html",
-#     "https://itorrents-igruha.org/3671-1-126821717.html",
-#     "https://itorrents-igruha.org/11642-8-99980.html",
-#     "https://itorrents-igruha.org/7793-muse-dash.html",
-#     "https://itorrents-igruha.org/15285-metaphor-refantazio.html",
-#     "https://itorrents-igruha.org/2576-witchfire.html",
-#     "https://itorrents-igruha.org/3821-126821717.html",
-#     "https://itorrents-igruha.org/16170-windblown.html"
-
-# ]
-# urls = problem_urls
 
 print(f"Total URLs: {len(urls)}\n")
 logging.info(f"Total URLs: {len(urls)}")
 
 # Структура для збереження даних
 data = {
-    "name": "Torrents-Igruha",
+    "name": config.SITE_NAME,
     "downloads": []
 }
 
+
 # Статистика
-updated_games_stats = 0
-download_options_stats = 0
-no_download_options_stats  = 0
-invalid_pages_stats = 0
+stats = {
+    "updated_games": 0,
+    "download_options": 0,
+    "no_download_options": 0,
+    "invalid_pages": 0,
+    "error_connecting": 0,
+}
 
-error_connecting_stats = 0
 
 
-# Ініціалізація кешу з файлу, якщо він існує
-CACHE_DIR = 'cache'
-CACHE_FILE = os.path.join(CACHE_DIR, 'parser_cache.json')
 
-# Create the cache directory if it doesn't exist
-if not os.path.exists(CACHE_DIR):
-    os.makedirs(CACHE_DIR)
 
-if os.path.exists(CACHE_FILE):
-    with open(CACHE_FILE, 'r', encoding='utf-8') as file:
-        cache = json.load(file)
-else:
-    cache = {}
+
+cache = initialize_cache()
 
 
 
@@ -315,11 +324,12 @@ for index, url in enumerate(urls, start=1):
     except requests.exceptions.RequestException as e:
         print(f'{index}. Error connecting to {url}: {e}')
         logging.error(f'{index}. Error connecting to {url}: {e}')
-        error_connecting_stats += 1
+
+        stats["error_connecting"] += 1
         continue
 
     soup = BeautifulSoup(page_response.text, 'html.parser')
-    site_update_date, site_game_name = extract_info_from_page(soup)
+    site_update_date, site_game_name = extract_date_title_igruha(soup)
 
     # Якщо сторінка не з грою, пропускаємо
     if not site_update_date or not site_game_name:
@@ -328,7 +338,7 @@ for index, url in enumerate(urls, start=1):
         print(invalid_page_log)
         logging.warning(invalid_page_log)
 
-        invalid_pages_stats += 1
+        stats["invalid_pages"] += 1
         continue
 
     cache_entry = cache.get(url)
@@ -345,26 +355,28 @@ for index, url in enumerate(urls, start=1):
             logging.info(cache_dn_option_log)
 
             data["downloads"].append(cached_download)
-            download_options_stats += 1
+
+            stats["download_options"] += 1
         continue
 
     game_page_log = f'{index}. {site_game_name} / {site_update_date} / {url}'
     print(game_page_log)
     logging.info(game_page_log)
 
-    download_options = get_download_options(soup)
+    download_options = fetch_dl_opts_igruha(soup)
     # Якщо немає варіантів завантаження, пропускаємо
     if (not download_options):
         print("    No download options")
         logging.info("    No download options")
-        no_download_options_stats += 1
+
+        stats["no_download_options"] += 1
         continue
 
     # якщо дані не збережені у кеші, та є опції завантаження
-    updated_games_stats += 1
+    stats["updated_games"] += 1
 
-    # translated_name = translate_text(site_game_name, target_language='en', source_language='auto')
-    translated_name = translate_text(site_game_name, target_language='en', source_language='ru')
+    # translated_name = translate_text_igruha(site_game_name, target_language='en', source_language='auto')
+    translated_name = translate_text_igruha(site_game_name, target_language='en', source_language='ru')
 
     # Новий запис у кеші
     cache_entry = {
@@ -382,7 +394,7 @@ for index, url in enumerate(urls, start=1):
         if (download_option['date']):
             uploadDate = download_option['date']
         else:
-            uploadDate = convert_to_iso_format(site_update_date)
+            uploadDate = date_to_iso(site_update_date)
         
         dn_option_log = f'    {title} / {uploadDate} / {download_option["fileSize"]}'
         print(dn_option_log)
@@ -397,7 +409,8 @@ for index, url in enumerate(urls, start=1):
 
         data["downloads"].append(download_info)
         cache_entry["download_options"].append(download_info)
-        download_options_stats += 1
+
+        stats["download_options"] += 1
 
     # Оновлюємо кеш із новими даними для поточного URL
     cache[url] = cache_entry
@@ -406,57 +419,45 @@ for index, url in enumerate(urls, start=1):
 
 print()
 
+
+
 # Закінчуємо таймер
 end_time = time.time()
 execution_time = end_time - start_time
-
-execution_time_log = f'Execution time: {execution_time:.2f} seconds'
-print(execution_time_log)
-logging.info(execution_time_log)
+print(f'Execution time: {execution_time:.2f} seconds')
+logging.info(f'Execution time: {execution_time:.2f} seconds')
 
 
 
 # Збереження кешу у файл після виконання скрипту
-with open(CACHE_FILE, 'w', encoding='utf-8') as file:
-    json.dump(cache, file, ensure_ascii=False, indent=4)
+save_cache(cache, config.CACHE_FILE)
 
 
 
-# Виведення загальної статистики
-# Функція для виведення статистики та логування
-def print_and_log(stat_name, stat_value):
-    output = f"{stat_name}: {stat_value}"
-    print(output)
-    logging.info(output)
-# Зберігаємо статистику в словнику
-stats = {
-    "Total Updated Games": updated_games_stats,
-    "Total Download Options": download_options_stats,
-    "Total Pages with no download options": no_download_options_stats,
-    "Total Invalid Pages": invalid_pages_stats,
-    "Total Error Connecting": error_connecting_stats,
-}
-# Виводимо статистику
+
+
+
+# Виведення статистики
 for stat_name, stat_value in stats.items():
-    print_and_log(stat_name, stat_value)
+    print(f"{stat_name.replace('_', ' ').title()}: {stat_value}")
 
 
 
-file_path = 'hydra_links_igruha.json'
+
+
 # Збереження у JSON файл
-with open(file_path, 'w', encoding='utf-8') as f:
+with open(config.DATA_FILE, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)  
-print(f"\nThe data is saved in file {file_path}")
-logging.info(f"The data is saved in file {file_path}")
+print(f"\nThe data is saved in file {config.DATA_FILE}")
+logging.info(f"The data is saved in file {config.DATA_FILE}")
 
 
 
-backup_dir  = 'json'
-os.makedirs(backup_dir , exist_ok=True)  # Create the directory if it doesn't exist
+os.makedirs(config.BACKUP_DIR , exist_ok=True)  # Create the directory if it doesn't exist
 
 current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 backup_filename  = f'backup_{current_time}.json'
-backup_file_path  = os.path.join(backup_dir , backup_filename)
+backup_file_path  = os.path.join(config.BACKUP_DIR , backup_filename)
 
 # Збереження копії у JSON файл
 with open(backup_file_path, 'w', encoding='utf-8') as f:
@@ -467,12 +468,18 @@ logging.info(f"The backup data is saved in file {backup_file_path}")
 
 
 
+
+
+
+
+
+
 # url = "https://itorrents-igruha.org/14496-sailing-era.html"
 # #     "https://itorrents-igruha.org/14496-sailing-era.html"
 
 # page_response = requests.get(url)
 # soup = BeautifulSoup(page_response.text, 'html.parser')
-# torrent_data = get_download_options(soup)
+# torrent_data = fetch_dl_opts_igruha(soup)
 
 # for data in torrent_data:
 #     # print(f"Download Torrent page: {data['link']}")
@@ -481,3 +488,6 @@ logging.info(f"The backup data is saved in file {backup_file_path}")
 #     print(f"Date: {data['date']}")
 #     # print(f"Torrent Link: {data['torrent_link']}")
 #     print(f"Magnet Link: {data['magnet_link']}\n")
+
+
+
