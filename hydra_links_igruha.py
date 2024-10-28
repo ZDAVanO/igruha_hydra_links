@@ -322,7 +322,7 @@ def process_url_igruha(index, url):
 
         invalid_page_log = f'{index}. (INVALID_PAGE) {url}'
         print(invalid_page_log)
-        logging.warning(invalid_page_log)
+        logging.info(invalid_page_log)
 
         stats["invalid_pages"] += 1
         return
