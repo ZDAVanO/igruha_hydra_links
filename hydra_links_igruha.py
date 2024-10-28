@@ -82,6 +82,7 @@ def torrent_bytes_to_magnet(torrent_bytes):
             formatted_date = datetime.fromtimestamp(creation_date).strftime('%Y-%m-%dT%H:%M:%SZ')
         else:
             print('Date Not Available in Torrent File')
+            logging.warning(f'Date Not Available in Torrent File')
 
         # return magnet_link, formatted_date
         return magnet_link, formatted_date, total_length
