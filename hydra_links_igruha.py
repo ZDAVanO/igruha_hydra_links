@@ -358,12 +358,15 @@ def process_url_igruha(index, url):
         stats["no_download_options"] += 1
         return
 
-    # якщо дані не збережені у кеші, та є опції завантаження
-    game_page_log = f'{index}. (UPDATED) {site_game_name} / {site_update_date} / {url}'
+
+    action = "UPDATED" if cache_entry else "ADDED"
+    game_page_log = f'{index}. ({action}) {site_game_name} / {site_update_date} / {url}'
     print(game_page_log)
     logging.info(game_page_log)
-
-    stats["updated_games"].append(game_page_log)
+    # Додаємо лог до відповідного списку
+    stats_key = "updated_games" if cache_entry else "added_games"
+    stats[stats_key].append(game_page_log)
+    
 
     # translated_name = translate_text_igruha(site_game_name, target_language='en', source_language='auto')
     translated_name = translate_text_igruha(site_game_name, target_language='en', source_language='ru')
@@ -444,6 +447,7 @@ data = {
 
 # Структура для збереження статистики
 stats = {
+    "added_games": [],
     "updated_games": [],
     "download_options": 0,
     "no_download_options": 0,
@@ -462,12 +466,12 @@ start_time = time.time()
 for index, url in enumerate(urls, start=1):
     process_url_igruha(index, url)
 
-
+print()
 # Закінчуємо таймер
 end_time = time.time()
 print(f'Execution time: {(end_time - start_time):.2f} seconds')
 logging.info(f'Execution time: {(end_time - start_time):.2f} seconds')
-
+print()
 
 # Збереження кешу у файл після виконання скрипту
 save_cache(cache, config.CACHE_FILE)
