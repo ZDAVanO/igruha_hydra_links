@@ -360,13 +360,17 @@ def process_url_igruha(index, url):
         return
 
 
-    action = "UPDATED" if cache_entry else "ADDED"
-    game_page_log = f'{index}. ({action}) {site_game_name} / {site_update_date} / {url}'
+
+    if cache_entry:
+        game_page_log = f'{index}. (UPDATED) {cache_entry['site_update_date']} -> {site_game_name} / {site_update_date} / {url}'
+        stats["updated_games"].append(game_page_log)
+    else:
+        game_page_log = f'{index}. (ADDED) {site_game_name} / {site_update_date} / {url}'
+        stats["added_games"].append(game_page_log)
+
     print(game_page_log)
     logging.info(game_page_log)
-    # Додаємо лог до відповідного списку
-    stats_key = "updated_games" if cache_entry else "added_games"
-    stats[stats_key].append(game_page_log)
+
     
 
     # translated_name = translate_text_igruha(site_game_name, target_language='en', source_language='auto')
