@@ -1,0 +1,8 @@
+Update JSON file with latest torrent data
+Added Games: 0
+Updated Games: 0
+Download Options: 177
+No Download Options: 2
+Invalid Pages: 51
+Error Connecting: 1
+ - https://itorrents-igruha.org/release-dates/
