@@ -439,7 +439,7 @@ def process_url_igruha(index, url):
 
 if not config.test_problem_urls:
     urls = get_urls_from_sitemap(config.SITEMAP_URL)
-    urls = urls[:200] # 200 перших URL для тестування
+    # urls = urls[:200] # 200 перших URL для тестування
 else:
     urls = config.problem_urls
 
