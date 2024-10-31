@@ -1,8 +1,11 @@
 Update JSON file with latest torrent data
-Added Games: 0
-Updated Games: 0
-Download Options: 177
-No Download Options: 2
-Invalid Pages: 51
+Added Games: 1
+ - 1058. (ADDED) Hоrizon Zero Dawn Remastered / 31.10.2024, 21:29 / https://itorrents-igruha.org/18177-878.html
+Updated Games: 2
+ - 334. (UPDATED) 24.10.2024, 22:55 -> Симс 4 / 31.10.2024, 22:15 / https://itorrents-igruha.org/8-6-8768.html
+ - 4859. (UPDATED) 23.09.2023, 21:33 -> Farlanders / 31.10.2024, 22:56 / https://itorrents-igruha.org/6981-farlanders.html
+Download Options: 12872
+No Download Options: 5478
+Invalid Pages: 59
 Error Connecting: 1
  - https://itorrents-igruha.org/release-dates/
