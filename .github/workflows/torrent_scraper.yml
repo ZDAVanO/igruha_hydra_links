@@ -34,6 +34,7 @@ jobs:
         path: |
           hydra_links_igruha.json
           parser.log
+          stats_output.txt
           cache/
 
     - name: Commit and push changes
@@ -45,7 +46,7 @@ jobs:
         git stash pop  # Apply stashed changes bac
         git add .
 
-        COMMIT_MESSAGE=$(cat commit_message.txt)
+        COMMIT_MESSAGE=$(cat stats_output.txt)
 
         git commit -m "$COMMIT_MESSAGE" || echo "No changes to commit"
         git push
