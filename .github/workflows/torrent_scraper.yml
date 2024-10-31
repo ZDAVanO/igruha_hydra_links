@@ -44,5 +44,8 @@ jobs:
         git pull --rebase  # Pull the latest changes from the remote repository
         git stash pop  # Apply stashed changes bac
         git add .
-        git commit -m "Update JSON file with latest torrent data" || echo "No changes to commit"
+
+        COMMIT_MESSAGE=$(cat commit_message.txt)
+
+        git commit -m "$COMMIT_MESSAGE" || echo "No changes to commit"
         git push

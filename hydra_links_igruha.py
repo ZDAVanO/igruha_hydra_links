@@ -269,28 +269,31 @@ def save_cache(cache, filename=config.CACHE_FILE):
 
 
 
+def print_stats(stats, output_file="stats_output.txt"):
+    # Відкриваємо файл для запису
+    with open(output_file, "w") as file:
+        # Додаємо заголовок коміта
+        file.write("Update JSON file with latest torrent data\n")
+        
+        for stat_name, stat_value in stats.items():
+            if isinstance(stat_value, list):
+                
+                output_text = f"{stat_name.replace('_', ' ').title()}: {len(stat_value)}"
+                print(output_text)
+                logging.info(output_text)
+                file.write(output_text + "\n")  # Запис в файл
 
-def print_stats(stats):
-    
-    for stat_name, stat_value in stats.items():
+                for element in stat_value:
+                    element_text = f" - {element}"
+                    print(element_text)
+                    logging.info(element_text)
+                    file.write(element_text + "\n")  # Запис кожного елемента в файл
 
-        if isinstance(stat_value, list):
-
-            output_text = f"{stat_name.replace('_', ' ').title()}: {len(stat_value)}"
-            print(output_text)
-            logging.info(output_text)
-
-            for element in stat_value:
-                print(f" - {element}")
-                logging.info(f" - {element}") 
-
-        else:
-            output_text = f"{stat_name.replace('_', ' ').title()}: {stat_value}"
-            print(output_text)
-            logging.info(output_text)
-
-
-
+            else:
+                output_text = f"{stat_name.replace('_', ' ').title()}: {stat_value}"
+                print(output_text)
+                logging.info(output_text)
+                file.write(output_text + "\n")  # Запис в файл
 
 
 
@@ -436,7 +439,7 @@ def process_url_igruha(index, url):
 
 if not config.test_problem_urls:
     urls = get_urls_from_sitemap(config.SITEMAP_URL)
-    # urls = urls[:200] # 200 перших URL для тестування
+    urls = urls[:200] # 200 перших URL для тестування
 else:
     urls = config.problem_urls
 
