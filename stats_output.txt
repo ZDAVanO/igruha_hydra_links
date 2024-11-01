@@ -1,52 +1,18 @@
 Update JSON file with latest torrent data
-Added Games: 21
- - 67. (ADDED) Vampire Hunters / 31.10.2024, 22:56 / https://itorrents-igruha.org/18423-vampire-hunters.html
- - 68. (ADDED) Quarterstaff / 31.10.2024, 22:56 / https://itorrents-igruha.org/18428-quarterstaff.html
- - 69. (ADDED) Sofie: The Echoes / 31.10.2024, 22:56 / https://itorrents-igruha.org/18429-sofie-the-echoes.html
- - 70. (ADDED) Xenowars / 31.10.2024, 22:56 / https://itorrents-igruha.org/18427-xenowars.html
- - 71. (ADDED) Monster High Skulltimate Secrets / 31.10.2024, 22:56 / https://itorrents-igruha.org/18426-monster-high-skulltimate-secrets.html
- - 72. (ADDED) Laundromat Simulator / 31.10.2024, 22:56 / https://itorrents-igruha.org/18425-laundromat-simulator.html
- - 73. (ADDED) Quadrober Simulator / 31.10.2024, 22:56 / https://itorrents-igruha.org/18424-quadrober-simulator.html
- - 113. (ADDED) Outbreak: Shades of Horror Chromatic Split / 30.10.2024, 22:02 / https://itorrents-igruha.org/18417-outbreak-shades-of-horror-chromatic-split.html
- - 114. (ADDED) Nuclear Nightmare / 30.10.2024, 22:02 / https://itorrents-igruha.org/18412-nuclear-nightmare.html
- - 115. (ADDED) Clock Tower: Rewind / 30.10.2024, 22:02 / https://itorrents-igruha.org/18421-clock-tower-rewind.html
- - 116. (ADDED) Bad 2 Bad: Apocalypse / 30.10.2024, 22:02 / https://itorrents-igruha.org/18422-bad-2-bad-apocalypse.html
- - 117. (ADDED) BeyondThere / 30.10.2024, 22:02 / https://itorrents-igruha.org/18420-beyondthere.html
- - 118. (ADDED) Skulltide / 30.10.2024, 22:02 / https://itorrents-igruha.org/18413-skulltide.html
- - 119. (ADDED) Liminalcore / 30.10.2024, 22:02 / https://itorrents-igruha.org/18414-liminalcore.html
- - 120. (ADDED) Tostchu / 30.10.2024, 22:02 / https://itorrents-igruha.org/18415-tostchu.html
- - 121. (ADDED) Draft Day Sports: Pro Basketball 2025 / 30.10.2024, 22:02 / https://itorrents-igruha.org/18416-draft-day-sports-pro-basketball-2025.html
- - 122. (ADDED) I'm on Observation Duty 7 / 30.10.2024, 22:02 / https://itorrents-igruha.org/18418-im-on-observation-duty-7.html
- - 123. (ADDED) The Scourge / 30.10.2024, 22:02 / https://itorrents-igruha.org/18419-the-scourge.html
- - 357. (ADDED) God of War Ragnarok / 25.10.2024, 18:55 / https://itorrents-igruha.org/8198-43-71791843.html
- - 1623. (ADDED) Hоrizon Fоrbidden West / 1.09.2024, 01:00 / https://itorrents-igruha.org/5326-11-70811443.html
- - 3458. (ADDED) Horizon Новый Рассвет / 21.04.2024, 20:25 / https://itorrents-igruha.org/4680-14-171781443.html
-Updated Games: 5
- - 62. (UPDATED) 29.09.2024, 12:48 -> Mind Over Magic / 31.10.2024, 23:07 / https://itorrents-igruha.org/11705-mind-over-magic.html
- - 63. (UPDATED) 23.10.2024, 14:09 -> Be My Horde / 31.10.2024, 23:05 / https://itorrents-igruha.org/18247-be-my-horde.html
- - 64. (UPDATED) 10.10.2024, 13:02 -> Ostranauts / 31.10.2024, 23:03 / https://itorrents-igruha.org/4587-ostranauts-1.html
- - 65. (UPDATED) 18.10.2024, 13:07 -> GoreBox / 31.10.2024, 23:01 / https://itorrents-igruha.org/15536-gorebox.html
- - 157. (UPDATED) 30.10.2024, 07:42 -> DRAGОN BALL: Sparking! ZERO / 1.11.2024, 01:14 / https://itorrents-igruha.org/16172-9889.html
-Download Options: 12862
-No Download Options: 5487
-Invalid Pages: 68
-Error Connecting: 19
+Added Games: 1
+ - 14935. (ADDED) NIMRODS / 1.11.2024, 08:14 / https://itorrents-igruha.org/15024-nimrods.html
+Updated Games: 8
+ - 74. (UPDATED) 31.10.2024, 22:15 -> Симс 4 / 1.11.2024, 03:28 / https://itorrents-igruha.org/8-6-8768.html
+ - 1552. (UPDATED) 5.09.2024, 23:51 -> Ticket to Ride / 1.11.2024, 08:22 / https://itorrents-igruha.org/18000-ticket-to-ride.html
+ - 1908. (UPDATED) 12.08.2024, 03:14 -> GUILTY GEAR -STRIVE- / 1.11.2024, 08:25 / https://itorrents-igruha.org/7028-guilty-gear-strive-.html
+ - 1972. (UPDATED) 8.08.2024, 08:51 -> That Time I Got Reincarnated as a Slime ISEKAI Chronicles / 1.11.2024, 08:31 / https://itorrents-igruha.org/17115-that-time-i-got-reincarnated-as-a-slime-isekai-chronicles.html
+ - 2132. (UPDATED) 28.07.2024, 07:31 -> Radio Free Europa / 1.11.2024, 08:32 / https://itorrents-igruha.org/16305-radio-free-europa.html
+ - 2180. (UPDATED) 25.07.2024, 13:13 -> Chrono Ark / 1.11.2024, 08:17 / https://itorrents-igruha.org/10896-chrono-ark.html
+ - 3001. (UPDATED) 1.06.2024, 10:22 -> Buckshot Roulette / 1.11.2024, 08:41 / https://itorrents-igruha.org/16261-buckshot-roulette.html
+ - 4041. (UPDATED) 20.02.2024, 11:04 -> The Last Hero of Nostalgaia / 1.11.2024, 08:06 / https://itorrents-igruha.org/12635-the-last-hero-of-nostalgaia.html
+Download Options: 12888
+No Download Options: 5486
+Invalid Pages: 59
+Error Connecting: 2
  - https://itorrents-igruha.org/release-dates/
- - https://itorrents-igruha.org/10194-buccaneers.html
- - https://itorrents-igruha.org/16457-the-pair-annihilation.html
- - https://itorrents-igruha.org/14576-hello-engineer.html
- - https://itorrents-igruha.org/15691-tea-garden-simulator.html
- - https://itorrents-igruha.org/14893-i-did-not-buy-this-ticket.html
- - https://itorrents-igruha.org/3293-tales-of-the-neon-sea.html
- - https://itorrents-igruha.org/11124-desktop-dungeons-enhanced-edition.html
- - https://itorrents-igruha.org/15581-astronaut-the-best.html
- - https://itorrents-igruha.org/15689-wild-frontier.html
- - https://itorrents-igruha.org/15688-fishing-adventure.html
- - https://itorrents-igruha.org/13676-judgment.html
- - https://itorrents-igruha.org/15661-garten-of-banban-4.html
- - https://itorrents-igruha.org/15684-fe.html
- - https://itorrents-igruha.org/5335-52171778.html
- - https://itorrents-igruha.org/14900-bridgebourn.html
- - https://itorrents-igruha.org/12844-acceptance.html
- - https://itorrents-igruha.org/7891-tavern-of-gods.html
- - https://itorrents-igruha.org/5622-assembly-planter.html
+ - https://itorrents-igruha.org/7458-distrant-2.html
