@@ -1,18 +1,43 @@
 Update JSON file with latest torrent data
 Added Games: 1
- - 14935. (ADDED) NIMRODS / 1.11.2024, 08:14 / https://itorrents-igruha.org/15024-nimrods.html
-Updated Games: 8
- - 74. (UPDATED) 31.10.2024, 22:15 -> Симс 4 / 1.11.2024, 03:28 / https://itorrents-igruha.org/8-6-8768.html
- - 1552. (UPDATED) 5.09.2024, 23:51 -> Ticket to Ride / 1.11.2024, 08:22 / https://itorrents-igruha.org/18000-ticket-to-ride.html
- - 1908. (UPDATED) 12.08.2024, 03:14 -> GUILTY GEAR -STRIVE- / 1.11.2024, 08:25 / https://itorrents-igruha.org/7028-guilty-gear-strive-.html
- - 1972. (UPDATED) 8.08.2024, 08:51 -> That Time I Got Reincarnated as a Slime ISEKAI Chronicles / 1.11.2024, 08:31 / https://itorrents-igruha.org/17115-that-time-i-got-reincarnated-as-a-slime-isekai-chronicles.html
- - 2132. (UPDATED) 28.07.2024, 07:31 -> Radio Free Europa / 1.11.2024, 08:32 / https://itorrents-igruha.org/16305-radio-free-europa.html
- - 2180. (UPDATED) 25.07.2024, 13:13 -> Chrono Ark / 1.11.2024, 08:17 / https://itorrents-igruha.org/10896-chrono-ark.html
- - 3001. (UPDATED) 1.06.2024, 10:22 -> Buckshot Roulette / 1.11.2024, 08:41 / https://itorrents-igruha.org/16261-buckshot-roulette.html
- - 4041. (UPDATED) 20.02.2024, 11:04 -> The Last Hero of Nostalgaia / 1.11.2024, 08:06 / https://itorrents-igruha.org/12635-the-last-hero-of-nostalgaia.html
-Download Options: 12888
-No Download Options: 5486
-Invalid Pages: 59
+ - 15186. (ADDED) Totally Spies! - Cyber Mission / 1.11.2024, 13:55 / https://itorrents-igruha.org/15554-totally-spies-cyber-mission.html
+Updated Games: 33
+ - 65. (UPDATED) 31.10.2024, 23:01 -> GoreBox / 1.11.2024, 11:11 / https://itorrents-igruha.org/15536-gorebox.html
+ - 149. (UPDATED) 30.10.2024, 11:42 -> FAIRY TAIL: DUNGEONS / 1.11.2024, 13:25 / https://itorrents-igruha.org/17927-fairy-tail-dungeons.html
+ - 185. (UPDATED) 29.10.2024, 10:10 -> Barotrauma / 1.11.2024, 11:21 / https://itorrents-igruha.org/3419-barotrauma.html
+ - 196. (UPDATED) 29.10.2024, 08:28 -> SULFUR / 1.11.2024, 11:17 / https://itorrents-igruha.org/14556-sulfur.html
+ - 243. (UPDATED) 28.10.2024, 13:36 -> Beloved Rapture / 1.11.2024, 13:40 / https://itorrents-igruha.org/17487-beloved-rapture.html
+ - 272. (UPDATED) 27.10.2024, 12:13 -> Farm Together 2 / 1.11.2024, 13:35 / https://itorrents-igruha.org/16558-farm-together-2.html
+ - 285. (UPDATED) 27.10.2024, 07:35 -> HumanitZ / 1.11.2024, 08:51 / https://itorrents-igruha.org/11857-humanitz.html
+ - 301. (UPDATED) 26.10.2024, 14:43 -> Windblown / 1.11.2024, 11:23 / https://itorrents-igruha.org/16170-windblown.html
+ - 359. (UPDATED) 25.10.2024, 16:27 -> Project Castaway / 1.11.2024, 08:55 / https://itorrents-igruha.org/12413-project-castaway.html
+ - 391. (UPDATED) 24.10.2024, 23:30 -> The World of Kungfu: Dragon and Eagle / 1.11.2024, 08:45 / https://itorrents-igruha.org/18368-the-world-of-kungfu-dragon-and-eagle.html
+ - 493. (UPDATED) 21.10.2024, 20:40 -> House Builder / 1.11.2024, 08:20 / https://itorrents-igruha.org/10127-house-builder.html
+ - 575. (UPDATED) 18.10.2024, 23:43 -> Core Keeper / 1.11.2024, 11:13 / https://itorrents-igruha.org/7093-core-keeper.html
+ - 632. (UPDATED) 17.10.2024, 08:39 -> WARNO / 1.11.2024, 12:53 / https://itorrents-igruha.org/9673-warno.html
+ - 755. (UPDATED) 12.10.2024, 12:42 -> Wild Indigo Ranch / 1.11.2024, 13:42 / https://itorrents-igruha.org/11065-wild-indigo-ranch.html
+ - 775. (UPDATED) 11.10.2024, 12:33 -> MEMORIAPOLIS / 1.11.2024, 13:47 / https://itorrents-igruha.org/17028-memoriapolis.html
+ - 778. (UPDATED) 11.10.2024, 10:43 -> Knock on the Coffin Lid / 1.11.2024, 08:26 / https://itorrents-igruha.org/5503-knock-on-the-coffin-lid.html
+ - 799. (UPDATED) 10.10.2024, 13:07 -> Lunacid / 1.11.2024, 13:49 / https://itorrents-igruha.org/10926-lunacid.html
+ - 817. (UPDATED) 9.10.2024, 13:19 -> Reka / 1.11.2024, 08:39 / https://itorrents-igruha.org/11787-reka.html
+ - 992. (UPDATED) 2.10.2024, 18:07 -> Turmoil / 1.11.2024, 13:28 / https://itorrents-igruha.org/2815-02-turmoil.html
+ - 1003. (UPDATED) 2.10.2024, 11:22 -> CATO: Buttered Cat / 1.11.2024, 13:27 / https://itorrents-igruha.org/18051-cato-buttered-cat.html
+ - 1091. (UPDATED) 28.09.2024, 12:51 -> Dystopika / 1.11.2024, 08:28 / https://itorrents-igruha.org/16884-dystopika.html
+ - 1147. (UPDATED) 26.09.2024, 18:51 -> Go-Go Town! / 1.11.2024, 13:45 / https://itorrents-igruha.org/14792-go-go-town.html
+ - 1342. (UPDATED) 17.09.2024, 08:11 -> Old School RPG / 1.11.2024, 08:37 / https://itorrents-igruha.org/17860-old-school-rpg.html
+ - 1502. (UPDATED) 8.09.2024, 16:59 -> Anonymous Hacker Simulator / 1.11.2024, 08:36 / https://itorrents-igruha.org/16902-3-anonymous-hacker-simulator.html
+ - 1534. (UPDATED) 6.09.2024, 15:07 -> Galactic Glitch / 1.11.2024, 13:37 / https://itorrents-igruha.org/13952-galactic-glitch.html
+ - 1675. (UPDATED) 29.08.2024, 10:44 -> WWE 2K24 / 1.11.2024, 13:29 / https://itorrents-igruha.org/16399-1-wwe-2k24.html
+ - 1844. (UPDATED) 16.08.2024, 20:11 -> Karate Survivor / 1.11.2024, 12:12 / https://itorrents-igruha.org/17568-karate-survivor.html
+ - 2063. (UPDATED) 1.08.2024, 13:01 -> The Garden Path / 1.11.2024, 11:16 / https://itorrents-igruha.org/11834-the-garden-path.html
+ - 2210. (UPDATED) 23.07.2024, 15:47 -> Fae Farm / 1.11.2024, 11:25 / https://itorrents-igruha.org/15243-fae-farm.html
+ - 2262. (UPDATED) 20.07.2024, 00:33 -> These Doomed Isles / 1.11.2024, 11:07 / https://itorrents-igruha.org/13852-these-doomed-isles.html
+ - 2271. (UPDATED) 19.07.2024, 12:18 -> Across the Obelisk / 1.11.2024, 11:19 / https://itorrents-igruha.org/6891-across-the-obelisk.html
+ - 2718. (UPDATED) 20.06.2024, 09:28 -> Psychroma / 1.11.2024, 13:31 / https://itorrents-igruha.org/11823-psychroma.html
+ - 3492. (UPDATED) 19.04.2024, 20:03 -> Cliff Empire / 1.11.2024, 13:51 / https://itorrents-igruha.org/2883-cliff-empire.html
+Download Options: 12889
+No Download Options: 5484
+Invalid Pages: 60
 Error Connecting: 2
- - https://itorrents-igruha.org/release-dates/
+ - https://itorrents-igruha.org/10720-my-hotel.html
  - https://itorrents-igruha.org/7458-distrant-2.html
