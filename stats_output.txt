@@ -1,16 +1,36 @@
 Update JSON file with latest torrent data
 Added Games: 0
-Updated Games: 7
- - 249. (UPDATED) 28.10.2024, 07:31 -> Drova - Forsaken Kin / 2.11.2024, 07:03 / https://itorrents-igruha.org/13224-drova-forsaken-kin.html
- - 382. (UPDATED) 25.10.2024, 07:40 -> GUNDAM BREAKER 4 / 2.11.2024, 07:08 / https://itorrents-igruha.org/17950-gundam-breaker-4.html
- - 571. (UPDATED) 19.10.2024, 08:29 -> Sea of Thieves / 2.11.2024, 07:12 / https://itorrents-igruha.org/837-sea-of-thieves.html
- - 816. (UPDATED) 9.10.2024, 16:52 -> Counter Strike 1.6 (КС 1.6) / 2.11.2024, 06:43 / https://itorrents-igruha.org/1131-counter-strike-16.html
- - 957. (UPDATED) 3.10.2024, 23:12 -> UBOAT / 2.11.2024, 07:10 / https://itorrents-igruha.org/3543-5-uboat.html
- - 1675. (UPDATED) 1.11.2024, 13:29 -> WWE 2K24 / 2.11.2024, 07:06 / https://itorrents-igruha.org/16399-1-wwe-2k24.html
- - 2415. (UPDATED) 9.07.2024, 10:51 -> Myst / 2.11.2024, 08:02 / https://itorrents-igruha.org/6793-myst.html
-Download Options: 12892
+Updated Games: 26
+ - 65. (UPDATED) GoreBox / 1.11.2024, 11:11 -> 2.11.2024, 11:33 / https://itorrents-igruha.org/15536-gorebox.html
+ - 75. (UPDATED) Hоrizon Zero Dawn Remastered / 31.10.2024, 21:29 -> 2.11.2024, 12:10 / https://itorrents-igruha.org/18177-878.html
+ - 82. (UPDATED) Vampire Survivors / 31.10.2024, 17:26 -> 2.11.2024, 11:39 / https://itorrents-igruha.org/9806-vampire-survivors.html
+ - 90. (UPDATED) Dead Estate / 31.10.2024, 17:05 -> 2.11.2024, 13:49 / https://itorrents-igruha.org/11453-dead-estate.html
+ - 91. (UPDATED) Forsaken Frontiers / 31.10.2024, 17:03 -> 2.11.2024, 13:46 / https://itorrents-igruha.org/18394-forsaken-frontiers.html
+ - 95. (UPDATED) Super Mining Mechs / 31.10.2024, 16:53 -> 2.11.2024, 13:30 / https://itorrents-igruha.org/18205-super-mining-mechs.html
+ - 146. (UPDATED) Hex of Steel / 30.10.2024, 11:49 -> 2.11.2024, 13:42 / https://itorrents-igruha.org/9589-hex-of-steel.html
+ - 161. (UPDATED) Brotato / 29.10.2024, 23:13 -> 2.11.2024, 13:47 / https://itorrents-igruha.org/12151-brotato.html
+ - 179. (UPDATED) Worshippers of Cthulhu / 29.10.2024, 15:41 -> 2.11.2024, 10:01 / https://itorrents-igruha.org/16848-worshippers-of-cthulhu.html
+ - 221. (UPDATED) Lethal Company / 28.10.2024, 18:44 -> 2.11.2024, 13:44 / https://itorrents-igruha.org/16126-lethal-company.html
+ - 225. (UPDATED) Sprocket / 28.10.2024, 18:33 -> 2.11.2024, 11:38 / https://itorrents-igruha.org/8014-sprocket.html
+ - 635. (UPDATED) Norland / 16.10.2024, 21:50 -> 2.11.2024, 11:36 / https://itorrents-igruha.org/9843-norland.html
+ - 685. (UPDATED) Slime 3K: Rise Against Despot / 15.10.2024, 23:36 -> 2.11.2024, 11:29 / https://itorrents-igruha.org/14745-slime-3k-rise-against-despot.html
+ - 768. (UPDATED) Song Of The Prairie / 11.10.2024, 20:15 -> 2.11.2024, 14:21 / https://itorrents-igruha.org/9428-song-of-the-prairie.html
+ - 911. (UPDATED) Necesse / 5.10.2024, 20:47 -> 2.11.2024, 13:39 / https://itorrents-igruha.org/10449-necesse.html
+ - 948. (UPDATED) Arctico / 4.10.2024, 13:29 -> 2.11.2024, 13:34 / https://itorrents-igruha.org/3363-arctico.html
+ - 985. (UPDATED) The Colonists / 2.10.2024, 23:31 -> 2.11.2024, 13:41 / https://itorrents-igruha.org/2231-the-colonists.html
+ - 1195. (UPDATED) Mashinky / 24.09.2024, 21:23 -> 2.11.2024, 11:41 / https://itorrents-igruha.org/1992-mashinky.html
+ - 1235. (UPDATED) Little Witch in the Woods / 22.09.2024, 17:33 -> 2.11.2024, 13:36 / https://itorrents-igruha.org/7952-little-witch-in-the-woods.html
+ - 1316. (UPDATED) Ghostrunner 2 / 18.09.2024, 14:22 -> 2.11.2024, 10:56 / https://itorrents-igruha.org/10084-ghostrunner-2.html
+ - 1777. (UPDATED) Car For Sale Simulator 2023 / 22.08.2024, 11:45 -> 2.11.2024, 10:06 / https://itorrents-igruha.org/14498-car-for-sale-simulator-2023.html
+ - 2774. (UPDATED) The Night is Grey / 17.06.2024, 08:24 -> 2.11.2024, 13:10 / https://itorrents-igruha.org/12384-the-night-is-grey.html
+ - 3149. (UPDATED) Magenta Horizon / 19.05.2024, 10:17 -> 2.11.2024, 13:51 / https://itorrents-igruha.org/13036-magenta-horizon.html
+ - 3863. (UPDATED) Blood West / 9.03.2024, 06:54 -> 2.11.2024, 11:46 / https://itorrents-igruha.org/7817-blood-west.html
+ - 5794. (UPDATED) Lost In Fantaland / 22.03.2023, 23:16 -> 2.11.2024, 13:33 / https://itorrents-igruha.org/13886-lost-in-fantaland.html
+ - 14935. (UPDATED) NIMRODS / 1.11.2024, 08:14 -> 2.11.2024, 11:32 / https://itorrents-igruha.org/15024-nimrods.html
+Download Options: 12891
 No Download Options: 5482
 Invalid Pages: 60
-Error Connecting: 2
+Error Connecting: 3
  - https://itorrents-igruha.org/10720-my-hotel.html
+ - https://itorrents-igruha.org/9046-super-motherload.html
  - https://itorrents-igruha.org/7458-distrant-2.html
