@@ -1,12 +1,13 @@
 Update JSON file with latest torrent data
-Added Games: 1
- - 8069. (ADDED) Dunjungle / 2.11.2024, 00:24 / https://itorrents-igruha.org/9330-dunjungle.html
-Updated Games: 5
- - 140. (UPDATED) 30.10.2024, 12:09 -> Valheim / 2.11.2024, 00:15 / https://itorrents-igruha.org/3154-valheim.html
- - 300. (UPDATED) 26.10.2024, 19:11 -> ICARUS / 1.11.2024, 22:10 / https://itorrents-igruha.org/8792-icarus-2021.html
- - 341. (UPDATED) 25.10.2024, 21:39 -> Zoochosis / 1.11.2024, 20:43 / https://itorrents-igruha.org/16320-zoochosis.html
- - 521. (UPDATED) 21.10.2024, 00:57 -> SnowRunner / 1.11.2024, 22:16 / https://itorrents-igruha.org/4129-1-snowrunner.html
- - 769. (UPDATED) 11.10.2024, 15:05 -> Sun Haven / 1.11.2024, 20:40 / https://itorrents-igruha.org/7804-sun-haven.html
+Added Games: 0
+Updated Games: 7
+ - 249. (UPDATED) 28.10.2024, 07:31 -> Drova - Forsaken Kin / 2.11.2024, 07:03 / https://itorrents-igruha.org/13224-drova-forsaken-kin.html
+ - 382. (UPDATED) 25.10.2024, 07:40 -> GUNDAM BREAKER 4 / 2.11.2024, 07:08 / https://itorrents-igruha.org/17950-gundam-breaker-4.html
+ - 571. (UPDATED) 19.10.2024, 08:29 -> Sea of Thieves / 2.11.2024, 07:12 / https://itorrents-igruha.org/837-sea-of-thieves.html
+ - 816. (UPDATED) 9.10.2024, 16:52 -> Counter Strike 1.6 (КС 1.6) / 2.11.2024, 06:43 / https://itorrents-igruha.org/1131-counter-strike-16.html
+ - 957. (UPDATED) 3.10.2024, 23:12 -> UBOAT / 2.11.2024, 07:10 / https://itorrents-igruha.org/3543-5-uboat.html
+ - 1675. (UPDATED) 1.11.2024, 13:29 -> WWE 2K24 / 2.11.2024, 07:06 / https://itorrents-igruha.org/16399-1-wwe-2k24.html
+ - 2415. (UPDATED) 9.07.2024, 10:51 -> Myst / 2.11.2024, 08:02 / https://itorrents-igruha.org/6793-myst.html
 Download Options: 12892
 No Download Options: 5482
 Invalid Pages: 60
