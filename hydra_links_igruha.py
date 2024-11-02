@@ -365,7 +365,7 @@ def process_url_igruha(index, url):
 
 
     if cache_entry:
-        game_page_log = f'{index}. (UPDATED) {cache_entry['site_update_date']} -> {site_game_name} / {site_update_date} / {url}'
+        game_page_log = f'{index}. (UPDATED) {site_game_name} / {cache_entry['site_update_date']} -> {site_update_date} / {url}'
         stats["updated_games"].append(game_page_log)
     else:
         game_page_log = f'{index}. (ADDED) {site_game_name} / {site_update_date} / {url}'
