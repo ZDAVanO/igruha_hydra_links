@@ -1,17 +1,15 @@
 Update JSON file with latest torrent data
 Added Games: 1
- - 8300. (ADDED) HELLSEED: All Chapters / 1.11.2024, 17:51 / https://itorrents-igruha.org/12490-hellseed.html
-Updated Games: 6
- - 173. (UPDATED) 29.10.2024, 18:28 -> Mortal Sin / 1.11.2024, 14:35 / https://itorrents-igruha.org/12542-mortal-sin.html
- - 231. (UPDATED) 28.10.2024, 15:14 -> Retail Company Simulator / 1.11.2024, 14:31 / https://itorrents-igruha.org/17795-retail-company-simulator.html
- - 748. (UPDATED) 12.10.2024, 16:57 -> SpaceBourne 2 / 1.11.2024, 18:36 / https://itorrents-igruha.org/9462-spacebourne-2.html
- - 1183. (UPDATED) 25.09.2024, 07:57 -> City 20 / 1.11.2024, 14:33 / https://itorrents-igruha.org/16613-city-20.html
- - 2046. (UPDATED) 2.08.2024, 14:23 -> No Rest for the Wicked / 1.11.2024, 17:27 / https://itorrents-igruha.org/16164-no-rest-for-the-wicked.html
- - 2323. (UPDATED) 15.07.2024, 23:46 -> Voidtrain / 1.11.2024, 17:34 / https://itorrents-igruha.org/4389-voidtrain.html
-Download Options: 12890
+ - 8069. (ADDED) Dunjungle / 2.11.2024, 00:24 / https://itorrents-igruha.org/9330-dunjungle.html
+Updated Games: 5
+ - 140. (UPDATED) 30.10.2024, 12:09 -> Valheim / 2.11.2024, 00:15 / https://itorrents-igruha.org/3154-valheim.html
+ - 300. (UPDATED) 26.10.2024, 19:11 -> ICARUS / 1.11.2024, 22:10 / https://itorrents-igruha.org/8792-icarus-2021.html
+ - 341. (UPDATED) 25.10.2024, 21:39 -> Zoochosis / 1.11.2024, 20:43 / https://itorrents-igruha.org/16320-zoochosis.html
+ - 521. (UPDATED) 21.10.2024, 00:57 -> SnowRunner / 1.11.2024, 22:16 / https://itorrents-igruha.org/4129-1-snowrunner.html
+ - 769. (UPDATED) 11.10.2024, 15:05 -> Sun Haven / 1.11.2024, 20:40 / https://itorrents-igruha.org/7804-sun-haven.html
+Download Options: 12892
 No Download Options: 5482
 Invalid Pages: 60
-Error Connecting: 3
- - https://itorrents-igruha.org/7467-lonesome.html
+Error Connecting: 2
  - https://itorrents-igruha.org/10720-my-hotel.html
  - https://itorrents-igruha.org/7458-distrant-2.html
