@@ -1,10 +1,12 @@
 Update JSON file with latest torrent data
-Added Games: 0
-Updated Games: 2
- - 224. (UPDATED) The Killing Antidote / 28.10.2024, 18:35 -> 2.11.2024, 21:12 / https://itorrents-igruha.org/18254-the-killing-antidote.html
- - 2997. (UPDATED) Менеджер фермы 2021 / 1.06.2024, 11:44 -> 2.11.2024, 21:17 / https://itorrents-igruha.org/4386-1-9789070.html
-Download Options: 12891
-No Download Options: 5482
+Added Games: 1
+ - 15693. (ADDED) Emberdrift / 3.11.2024, 07:26 / https://itorrents-igruha.org/16798-emberdrift.html
+Updated Games: 3
+ - 884. (UPDATED) The Last Flame / 7.10.2024, 07:41 -> 3.11.2024, 07:09 / https://itorrents-igruha.org/15629-the-last-flame.html
+ - 2013. (UPDATED) Stacklands / 5.08.2024, 11:32 -> 3.11.2024, 07:11 / https://itorrents-igruha.org/10892-stacklands.html
+ - 3057. (UPDATED) Magicraft / 28.05.2024, 09:28 -> 3.11.2024, 07:20 / https://itorrents-igruha.org/16044-magicraft.html
+Download Options: 12892
+No Download Options: 5481
 Invalid Pages: 60
 Error Connecting: 3
  - https://itorrents-igruha.org/10720-my-hotel.html
