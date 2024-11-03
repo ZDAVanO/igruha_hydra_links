@@ -1,24 +1,40 @@
 Update JSON file with latest torrent data
-Added Games: 0
-Updated Games: 14
- - 150. (UPDATED) KeeperRL / 30.10.2024, 11:41 -> 3.11.2024, 11:13 / https://itorrents-igruha.org/4306-keeperrl.html
- - 169. (UPDATED) Factorio / 29.10.2024, 19:34 -> 3.11.2024, 11:45 / https://itorrents-igruha.org/1532-factorio.html
- - 189. (UPDATED) Keeper's Toll / 29.10.2024, 09:59 -> 3.11.2024, 11:18 / https://itorrents-igruha.org/18027-keepers-toll.html
- - 190. (UPDATED) Age of History 3 / 29.10.2024, 09:51 -> 3.11.2024, 11:20 / https://itorrents-igruha.org/16821-age-of-history-3.html
- - 274. (UPDATED) Tunguska The Visitation / 27.10.2024, 11:27 -> 3.11.2024, 11:49 / https://itorrents-igruha.org/2450-tunguska-the-visitation.html
- - 278. (UPDATED) No Man's Sky / 27.10.2024, 11:13 -> 3.11.2024, 11:47 / https://itorrents-igruha.org/65-no-mans-sky.html
- - 302. (UPDATED) Infectiоn Free Zone / 26.10.2024, 13:39 -> 3.11.2024, 11:22 / https://itorrents-igruha.org/11680-870.html
- - 448. (UPDATED) ANIMAL WELL / 23.10.2024, 13:22 -> 3.11.2024, 11:07 / https://itorrents-igruha.org/14631-animal-well.html
- - 1271. (UPDATED) Арморед Кор 6 Файер оф Рубикон / 21.09.2024, 08:03 -> 3.11.2024, 13:08 / https://itorrents-igruha.org/14385-17712788.html
- - 1844. (UPDATED) Karate Survivor / 1.11.2024, 12:12 -> 3.11.2024, 11:10 / https://itorrents-igruha.org/17568-karate-survivor.html
- - 1924. (UPDATED) Paleon / 10.08.2024, 23:45 -> 3.11.2024, 11:16 / https://itorrents-igruha.org/7310-paleon.html
- - 2093. (UPDATED) CHUXIE / 30.07.2024, 23:16 -> 3.11.2024, 11:57 / https://itorrents-igruha.org/17768-chuxie.html
- - 2485. (UPDATED) Ranch Simulator / 4.07.2024, 07:27 -> 3.11.2024, 13:53 / https://itorrents-igruha.org/4003-ranch-simulator.html
- - 4043. (UPDATED) WW2 Rebuilder / 20.02.2024, 06:32 -> 3.11.2024, 13:05 / https://itorrents-igruha.org/9691-ww2-rebuilder.html
-Download Options: 12892
-No Download Options: 5481
+Added Games: 1
+ - 57. (ADDED) BEHEMOTH / 3.11.2024, 18:20 / https://itorrents-igruha.org/18384-behemoth.html
+Updated Games: 28
+ - 65. (UPDATED) GoreBox / 2.11.2024, 11:33 -> 3.11.2024, 18:53 / https://itorrents-igruha.org/15536-gorebox.html
+ - 90. (UPDATED) Dead Estate / 2.11.2024, 13:49 -> 3.11.2024, 17:10 / https://itorrents-igruha.org/11453-dead-estate.html
+ - 91. (UPDATED) Forsaken Frontiers / 2.11.2024, 13:46 -> 3.11.2024, 16:54 / https://itorrents-igruha.org/18394-forsaken-frontiers.html
+ - 131. (UPDATED) Connection: The Nightmare Within / 30.10.2024, 16:04 -> 3.11.2024, 18:06 / https://itorrents-igruha.org/18393-connection-the-nightmare-within.html
+ - 169. (UPDATED) Factorio / 3.11.2024, 11:45 -> 3.11.2024, 18:20 / https://itorrents-igruha.org/1532-factorio.html
+ - 173. (UPDATED) Mortal Sin / 1.11.2024, 14:35 -> 3.11.2024, 18:59 / https://itorrents-igruha.org/12542-mortal-sin.html
+ - 196. (UPDATED) SULFUR / 1.11.2024, 11:17 -> 3.11.2024, 17:12 / https://itorrents-igruha.org/14556-sulfur.html
+ - 236. (UPDATED) Parking Garage Rally Circuit / 28.10.2024, 14:18 -> 3.11.2024, 17:09 / https://itorrents-igruha.org/18139-parking-garage-rally-circuit.html
+ - 240. (UPDATED) UFO 50 / 28.10.2024, 14:10 -> 3.11.2024, 16:46 / https://itorrents-igruha.org/14104-ufo-50.html
+ - 249. (UPDATED) Drova - Forsaken Kin / 2.11.2024, 07:03 -> 3.11.2024, 18:58 / https://itorrents-igruha.org/13224-drova-forsaken-kin.html
+ - 252. (UPDATED) The Axis Unseen / 27.10.2024, 18:46 -> 3.11.2024, 18:50 / https://itorrents-igruha.org/8980-the-axis-unseen.html
+ - 268. (UPDATED) Genome Guardian / 27.10.2024, 12:22 -> 3.11.2024, 17:06 / https://itorrents-igruha.org/17725-genome-guardian.html
+ - 273. (UPDATED) Rhythm Doctor / 27.10.2024, 12:10 -> 3.11.2024, 16:53 / https://itorrents-igruha.org/4922-rhythm-doctor.html
+ - 376. (UPDATED) Soulash 2 / 25.10.2024, 14:42 -> 3.11.2024, 16:49 / https://itorrents-igruha.org/14973-soulash-2.html
+ - 469. (UPDATED) Awaken - Astral Blade / 22.10.2024, 20:50 -> 3.11.2024, 18:13 / https://itorrents-igruha.org/12240-awaken-astral-blade.html
+ - 513. (UPDATED) Chill Pulse / 21.10.2024, 12:26 -> 3.11.2024, 16:44 / https://itorrents-igruha.org/17145-chill-pulse.html
+ - 565. (UPDATED) Angola 86 / 19.10.2024, 14:16 -> 3.11.2024, 17:08 / https://itorrents-igruha.org/17967-angola-86.html
+ - 575. (UPDATED) Core Keeper / 1.11.2024, 11:13 -> 3.11.2024, 16:51 / https://itorrents-igruha.org/7093-core-keeper.html
+ - 811. (UPDATED) Hard Time III / 9.10.2024, 23:14 -> 3.11.2024, 16:38 / https://itorrents-igruha.org/18039-hard-time-iii.html
+ - 816. (UPDATED) Counter Strike 1.6 (КС 1.6) / 2.11.2024, 06:43 -> 3.11.2024, 16:49 / https://itorrents-igruha.org/1131-counter-strike-16.html
+ - 877. (UPDATED) Ravenswatch / 7.10.2024, 12:53 -> 3.11.2024, 19:01 / https://itorrents-igruha.org/12253-ravenswatch.html
+ - 911. (UPDATED) Necesse / 2.11.2024, 13:39 -> 3.11.2024, 16:45 / https://itorrents-igruha.org/10449-necesse.html
+ - 942. (UPDATED) Pinball Spire / 4.10.2024, 17:07 -> 3.11.2024, 16:48 / https://itorrents-igruha.org/18225-pinball-spire.html
+ - 1075. (UPDATED) Farmer's Life / 29.09.2024, 07:42 -> 3.11.2024, 19:00 / https://itorrents-igruha.org/4673-farmers-life.html
+ - 1264. (UPDATED) TerraTech / 21.09.2024, 12:05 -> 3.11.2024, 16:56 / https://itorrents-igruha.org/104-terratech.html
+ - 2010. (UPDATED) Secrets of Magonia / 5.08.2024, 17:44 -> 3.11.2024, 18:15 / https://itorrents-igruha.org/17704-secrets-of-magonia.html
+ - 4844. (UPDATED) PAYDAY 3 / 2.10.2023, 16:16 -> 3.11.2024, 20:26 / https://itorrents-igruha.org/5953-payday-3.html
+ - 14935. (UPDATED) NIMRODS / 2.11.2024, 11:32 -> 3.11.2024, 18:51 / https://itorrents-igruha.org/15024-nimrods.html
+Download Options: 12893
+No Download Options: 5480
 Invalid Pages: 60
-Error Connecting: 3
+Error Connecting: 4
  - https://itorrents-igruha.org/10720-my-hotel.html
  - https://itorrents-igruha.org/9046-super-motherload.html
+ - https://itorrents-igruha.org/8805-the-dawning.html
  - https://itorrents-igruha.org/7458-distrant-2.html
