@@ -1,10 +1,20 @@
 Update JSON file with latest torrent data
-Added Games: 1
- - 15693. (ADDED) Emberdrift / 3.11.2024, 07:26 / https://itorrents-igruha.org/16798-emberdrift.html
-Updated Games: 3
- - 884. (UPDATED) The Last Flame / 7.10.2024, 07:41 -> 3.11.2024, 07:09 / https://itorrents-igruha.org/15629-the-last-flame.html
- - 2013. (UPDATED) Stacklands / 5.08.2024, 11:32 -> 3.11.2024, 07:11 / https://itorrents-igruha.org/10892-stacklands.html
- - 3057. (UPDATED) Magicraft / 28.05.2024, 09:28 -> 3.11.2024, 07:20 / https://itorrents-igruha.org/16044-magicraft.html
+Added Games: 0
+Updated Games: 14
+ - 150. (UPDATED) KeeperRL / 30.10.2024, 11:41 -> 3.11.2024, 11:13 / https://itorrents-igruha.org/4306-keeperrl.html
+ - 169. (UPDATED) Factorio / 29.10.2024, 19:34 -> 3.11.2024, 11:45 / https://itorrents-igruha.org/1532-factorio.html
+ - 189. (UPDATED) Keeper's Toll / 29.10.2024, 09:59 -> 3.11.2024, 11:18 / https://itorrents-igruha.org/18027-keepers-toll.html
+ - 190. (UPDATED) Age of History 3 / 29.10.2024, 09:51 -> 3.11.2024, 11:20 / https://itorrents-igruha.org/16821-age-of-history-3.html
+ - 274. (UPDATED) Tunguska The Visitation / 27.10.2024, 11:27 -> 3.11.2024, 11:49 / https://itorrents-igruha.org/2450-tunguska-the-visitation.html
+ - 278. (UPDATED) No Man's Sky / 27.10.2024, 11:13 -> 3.11.2024, 11:47 / https://itorrents-igruha.org/65-no-mans-sky.html
+ - 302. (UPDATED) Infectiоn Free Zone / 26.10.2024, 13:39 -> 3.11.2024, 11:22 / https://itorrents-igruha.org/11680-870.html
+ - 448. (UPDATED) ANIMAL WELL / 23.10.2024, 13:22 -> 3.11.2024, 11:07 / https://itorrents-igruha.org/14631-animal-well.html
+ - 1271. (UPDATED) Арморед Кор 6 Файер оф Рубикон / 21.09.2024, 08:03 -> 3.11.2024, 13:08 / https://itorrents-igruha.org/14385-17712788.html
+ - 1844. (UPDATED) Karate Survivor / 1.11.2024, 12:12 -> 3.11.2024, 11:10 / https://itorrents-igruha.org/17568-karate-survivor.html
+ - 1924. (UPDATED) Paleon / 10.08.2024, 23:45 -> 3.11.2024, 11:16 / https://itorrents-igruha.org/7310-paleon.html
+ - 2093. (UPDATED) CHUXIE / 30.07.2024, 23:16 -> 3.11.2024, 11:57 / https://itorrents-igruha.org/17768-chuxie.html
+ - 2485. (UPDATED) Ranch Simulator / 4.07.2024, 07:27 -> 3.11.2024, 13:53 / https://itorrents-igruha.org/4003-ranch-simulator.html
+ - 4043. (UPDATED) WW2 Rebuilder / 20.02.2024, 06:32 -> 3.11.2024, 13:05 / https://itorrents-igruha.org/9691-ww2-rebuilder.html
 Download Options: 12892
 No Download Options: 5481
 Invalid Pages: 60
