@@ -312,10 +312,13 @@ def process_url_igruha(index, url):
         page_response = requests.get(url)
         page_response.raise_for_status()  # викликає помилку, якщо статус не 200
     except requests.exceptions.RequestException as e:
+
         print(f'{index}. Error connecting to {url}: {e}')
         logging.error(f'{index}. Error connecting to {url}: {e}')
 
-        stats["error_connecting"].append(url)
+
+        er_con_log = f'{index}. {url}'
+        stats["error_connecting"].append(er_con_log)
         return
 
     soup = BeautifulSoup(page_response.text, 'html.parser')
