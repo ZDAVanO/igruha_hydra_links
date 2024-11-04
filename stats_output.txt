@@ -1,8 +1,23 @@
 Update JSON file with latest torrent data
-Added Games: 0
-Updated Games: 0
-Download Options: 12894
-No Download Options: 5480
+Added Games: 1
+ - 15180. (ADDED) Albatroz / 4.11.2024, 07:13 / https://itorrents-igruha.org/15543-albatroz.html
+Updated Games: 14
+ - 153. (UPDATED) Saturn / 30.10.2024, 10:43 -> 4.11.2024, 07:08 / https://itorrents-igruha.org/16223-saturn.html
+ - 289. (UPDATED) Wandering Sword / 27.10.2024, 07:14 -> 4.11.2024, 07:48 / https://itorrents-igruha.org/15775-wandering-sword.html
+ - 452. (UPDATED) Kebab Chefs! - Restaurant Simulator / 23.10.2024, 11:12 -> 4.11.2024, 07:39 / https://itorrents-igruha.org/12009-kebab-chefs-restaurant-simulator.html
+ - 506. (UPDATED) Don't Starve Together / 21.10.2024, 12:53 -> 4.11.2024, 07:30 / https://itorrents-igruha.org/1419-dont-starve-together.html
+ - 599. (UPDATED) Le Mans Ultimate / 18.10.2024, 07:47 -> 4.11.2024, 07:55 / https://itorrents-igruha.org/15234-le-mans-ultimate.html
+ - 911. (UPDATED) Necesse / 3.11.2024, 16:45 -> 4.11.2024, 07:43 / https://itorrents-igruha.org/10449-necesse.html
+ - 1111. (UPDATED) Little Kitty, Big City / 27.09.2024, 17:42 -> 4.11.2024, 07:40 / https://itorrents-igruha.org/9219-little-kitty-big-city.html
+ - 1170. (UPDATED) Wings of Seduction: Bust 'em out! / 25.09.2024, 19:24 -> 4.11.2024, 07:21 / https://itorrents-igruha.org/17803-wings-of-seduction-bust-em-out.html
+ - 1173. (UPDATED) Everdream Valley / 25.09.2024, 19:14 -> 4.11.2024, 07:33 / https://itorrents-igruha.org/12450-everdream-valley.html
+ - 1648. (UPDATED) PILGRIM / 30.08.2024, 08:18 -> 4.11.2024, 07:05 / https://itorrents-igruha.org/17646-pilgrim.html
+ - 2066. (UPDATED) Progressbar95 / 1.08.2024, 11:36 -> 4.11.2024, 07:51 / https://itorrents-igruha.org/6373-progressbar95.html
+ - 2529. (UPDATED) Farm Manager World / 1.07.2024, 00:23 -> 4.11.2024, 07:36 / https://itorrents-igruha.org/15400-farm-manager-world.html
+ - 4264. (UPDATED) Bulletstorm VR / 22.01.2024, 21:54 -> 4.11.2024, 07:54 / https://itorrents-igruha.org/16211-bulletstorm-vr.html
+ - 4981. (UPDATED) XENOTILT: HOSTILE PINBALL ACTION / 5.09.2023, 13:07 -> 4.11.2024, 07:23 / https://itorrents-igruha.org/14596-xenotilt-hostile-pinball-action.html
+Download Options: 12895
+No Download Options: 5479
 Invalid Pages: 60
 Error Connecting: 3
  - https://itorrents-igruha.org/10720-my-hotel.html
