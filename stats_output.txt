@@ -1,15 +1,54 @@
 Update JSON file with latest torrent data
-Added Games: 1
- - 14757. (ADDED) Empire of the Ants / 4.11.2024, 11:21 / https://itorrents-igruha.org/14548-empire-of-the-ants.html
-Updated Games: 3
- - 126. (UPDATED) Moon Mystery / 2.11.2024, 15:55 -> 4.11.2024, 10:07 / https://itorrents-igruha.org/12545-moon-mystery.html
- - 405. (UPDATED) PRIM / 24.10.2024, 21:11 -> 4.11.2024, 11:59 / https://itorrents-igruha.org/12580-prim.html
- - 998. (UPDATED) Sins of a Solar Empire 2 / 2.10.2024, 13:40 -> 4.11.2024, 10:10 / https://itorrents-igruha.org/13720-sins-of-a-solar-empire-2.html
-Download Options: 12895
-No Download Options: 5478
+Added Games: 0
+Updated Games: 42
+ - 65. (UPDATED) GoreBox / 3.11.2024, 18:53 -> 4.11.2024, 17:21 / https://itorrents-igruha.org/15536-gorebox.html
+ - 100. (UPDATED) Dark Sky / 31.10.2024, 13:56 -> 4.11.2024, 15:25 / https://itorrents-igruha.org/16737-dark-sky.html
+ - 101. (UPDATED) Technotopia / 31.10.2024, 13:52 -> 4.11.2024, 19:28 / https://itorrents-igruha.org/16624-technotopia.html
+ - 137. (UPDATED) Caves of Qud / 30.10.2024, 13:13 -> 4.11.2024, 17:24 / https://itorrents-igruha.org/3342-caves-of-qud.html
+ - 146. (UPDATED) Hex of Steel / 2.11.2024, 13:42 -> 4.11.2024, 17:23 / https://itorrents-igruha.org/9589-hex-of-steel.html
+ - 197. (UPDATED) Deathbound / 29.10.2024, 08:22 -> 4.11.2024, 15:29 / https://itorrents-igruha.org/13135-deathbound.html
+ - 200. (UPDATED) Хаус Флиппер 2 / 29.10.2024, 08:10 -> 5.11.2024, 07:52 / https://itorrents-igruha.org/12778-8-980890.html
+ - 249. (UPDATED) Drova - Forsaken Kin / 3.11.2024, 18:58 -> 4.11.2024, 18:54 / https://itorrents-igruha.org/13224-drova-forsaken-kin.html
+ - 313. (UPDATED) Endzone 2 / 26.10.2024, 13:12 -> 5.11.2024, 07:42 / https://itorrents-igruha.org/15737-endzone-2.html
+ - 325. (UPDATED) Slay the Princess / 26.10.2024, 00:11 -> 4.11.2024, 16:24 / https://itorrents-igruha.org/16289-slay-the-princess.html
+ - 343. (UPDATED) The Coma 2B: Catacomb / 25.10.2024, 21:20 -> 4.11.2024, 16:33 / https://itorrents-igruha.org/16892-the-coma-2b-catacomb.html
+ - 354. (UPDATED) Craftomation 101 / 25.10.2024, 19:36 -> 4.11.2024, 15:22 / https://itorrents-igruha.org/14601-craftomation-101.html
+ - 417. (UPDATED) Rabbit and Steel / 24.10.2024, 11:30 -> 5.11.2024, 07:58 / https://itorrents-igruha.org/17265-rabbit-and-steel.html
+ - 419. (UPDATED) MechWarrior 5: Clans / 24.10.2024, 11:10 -> 5.11.2024, 08:09 / https://itorrents-igruha.org/15875-mechwarrior-5-clans.html
+ - 442. (UPDATED) Crusader Kings 3 (III) / 23.10.2024, 14:04 -> 4.11.2024, 19:31 / https://itorrents-igruha.org/4250-crusader-kings-3-2.html
+ - 516. (UPDATED) Depersonalization / 21.10.2024, 08:08 -> 4.11.2024, 17:36 / https://itorrents-igruha.org/14442-depersonalization.html
+ - 528. (UPDATED) Beat Hazard 3 / 20.10.2024, 12:19 -> 4.11.2024, 14:47 / https://itorrents-igruha.org/14270-beat-hazard-3.html
+ - 550. (UPDATED) RetroRealms Arcade / 19.10.2024, 22:30 -> 4.11.2024, 17:28 / https://itorrents-igruha.org/18343-retrorealms-arcade.html
+ - 617. (UPDATED) Zompiercer / 17.10.2024, 14:41 -> 4.11.2024, 17:42 / https://itorrents-igruha.org/5201-zompiercer.html
+ - 632. (UPDATED) WARNO / 1.11.2024, 12:53 -> 4.11.2024, 16:36 / https://itorrents-igruha.org/9673-warno.html
+ - 638. (UPDATED) Stationeers / 16.10.2024, 21:35 -> 4.11.2024, 17:34 / https://itorrents-igruha.org/2085-21-stationeers-download.html
+ - 643. (UPDATED) Squirrel with a Gun / 16.10.2024, 19:21 -> 4.11.2024, 17:38 / https://itorrents-igruha.org/13920-squirrel-with-a-gun.html
+ - 692. (UPDATED) Lords of the Fallen 2023 / 15.10.2024, 18:39 -> 4.11.2024, 18:19 / https://itorrents-igruha.org/13269-lords-of-the-fallen-2023.html
+ - 700. (UPDATED) Chains of Fury / 15.10.2024, 11:51 -> 4.11.2024, 14:50 / https://itorrents-igruha.org/6234-chains-of-fury.html
+ - 748. (UPDATED) SpaceBourne 2 / 1.11.2024, 18:36 -> 5.11.2024, 08:43 / https://itorrents-igruha.org/9462-spacebourne-2.html
+ - 917. (UPDATED) Smuta (Смута) / 5.10.2024, 16:25 -> 4.11.2024, 20:14 / https://itorrents-igruha.org/12766-smuta.html
+ - 934. (UPDATED) Potion Tycoon / 4.10.2024, 19:41 -> 4.11.2024, 16:19 / https://itorrents-igruha.org/11160-potion-tycoon.html
+ - 985. (UPDATED) The Colonists / 2.11.2024, 13:41 -> 4.11.2024, 16:28 / https://itorrents-igruha.org/2231-the-colonists.html
+ - 1074. (UPDATED) The Holy Gosh Darn / 29.09.2024, 07:48 -> 4.11.2024, 17:31 / https://itorrents-igruha.org/14697-the-holy-gosh-darn.html
+ - 1448. (UPDATED) Elsie / 11.09.2024, 08:13 -> 5.11.2024, 11:09 / https://itorrents-igruha.org/12419-elsie.html
+ - 1730. (UPDATED) DEVIATOR / 26.08.2024, 13:26 -> 5.11.2024, 07:47 / https://itorrents-igruha.org/16060-deviator.html
+ - 2037. (UPDATED) MARS 2120 / 2.08.2024, 22:04 -> 5.11.2024, 07:45 / https://itorrents-igruha.org/17788-mars-2120.html
+ - 2465. (UPDATED) The Wandering Village / 5.07.2024, 12:15 -> 5.11.2024, 11:23 / https://itorrents-igruha.org/7786-the-wandering-village.html
+ - 2528. (UPDATED) Feed the Cups / 1.07.2024, 00:27 -> 4.11.2024, 18:35 / https://itorrents-igruha.org/16434-feed-the-cups.html
+ - 2716. (UPDATED) Jack Holmes : Master of Puppets / 20.06.2024, 09:37 -> 4.11.2024, 16:15 / https://itorrents-igruha.org/15182-jack-holmes-master-of-puppets.html
+ - 2783. (UPDATED) Castle Of Alchemists / 16.06.2024, 11:09 -> 4.11.2024, 17:20 / https://itorrents-igruha.org/10219-castle-of-alchemists.html
+ - 2921. (UPDATED) Tomb Raider I-III Remastered / 7.06.2024, 20:29 -> 5.11.2024, 10:56 / https://itorrents-igruha.org/15877-tomb-raider-i-iii-remastered.html
+ - 3213. (UPDATED) Abyss School / 12.05.2024, 12:26 -> 5.11.2024, 07:54 / https://itorrents-igruha.org/16389-abyss-school.html
+ - 3330. (UPDATED) Kill The Crows / 2.05.2024, 20:12 -> 4.11.2024, 18:21 / https://itorrents-igruha.org/15729-kill-the-crows.html
+ - 4096. (UPDATED) Tortuga - A Pirate's Tale / 13.02.2024, 20:01 -> 4.11.2024, 19:25 / https://itorrents-igruha.org/13278-tortuga-a-pirates-tale.html
+ - 4772. (UPDATED) Sea of Survivors / 19.10.2023, 17:22 -> 4.11.2024, 17:17 / https://itorrents-igruha.org/15990-sea-of-survivors.html
+ - 4918. (UPDATED) Survivor Mercs / 18.09.2023, 10:39 -> 5.11.2024, 11:21 / https://itorrents-igruha.org/15372-survivor-mercs.html
+Download Options: 12896
+No Download Options: 5477
 Invalid Pages: 60
 Error Connecting: 4
- - https://itorrents-igruha.org/10720-my-hotel.html
- - https://itorrents-igruha.org/7084-marvels-guardians-of-the-galaxy.html
- - https://itorrents-igruha.org/9046-super-motherload.html
- - https://itorrents-igruha.org/7458-distrant-2.html
+ - 7268. https://itorrents-igruha.org/10720-my-hotel.html
+ - 8856. https://itorrents-igruha.org/2900-30-days-to-survive.html
+ - 11962. https://itorrents-igruha.org/9046-super-motherload.html
+ - 13128. https://itorrents-igruha.org/7458-distrant-2.html
+Error Processing: 0
