@@ -395,13 +395,10 @@ class IgruhaParser:
 
         # Перевіряємо, чи рядок містить неанглійські букви
         if non_english_pattern.search(text):
-            translated_text = translate_line(text , target_language, source_language)
-            result = translated_text
+            return translate_line(text , target_language, source_language)
         else:
             # print(f'ALREADY IN ENGLISH ({text})')
-            result = text 
-
-        return result
+            return text 
 
 
     # MARK: print_stats
