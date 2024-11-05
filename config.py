@@ -16,6 +16,8 @@ LOG_FILE = 'parser.log'
 # If True, the parser will only parse problem_urls
 test_problem_urls = False # True False
 problem_urls = [
+    "https://itorrents-igruha.org/2529-il-2-shturmovik-tank-crew.html",
+    "https://itorrents-igruha.org/8822-castlestorm.html",
     "https://itorrents-igruha.org/8095-believe.html", # DEAD_TORRENT
     "https://itorrents-igruha.org/14496-sailing-era.html",
     "https://itorrents-igruha.org/3671-1-126821717.html",

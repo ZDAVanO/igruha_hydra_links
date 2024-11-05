@@ -36,9 +36,10 @@ class IgruhaParser:
         self.problem_urls = problem_urls if problem_urls is not None else []
 
         logging.basicConfig(filename=self.log_file, 
-                    level=logging.INFO, 
-                    format='%(asctime)s - %(levelname)s - %(message)s',
-                    filemode='w')
+                            level=logging.INFO, 
+                            format='%(asctime)s - %(levelname)s - %(message)s',
+                            filemode='w',
+                            encoding='utf-8')
 
         self.cache = self._initialize_cache()
 
@@ -69,12 +70,10 @@ class IgruhaParser:
         if os.getenv('GITHUB_ACTIONS') == 'true':
             miniters_value = 100  # Для GitHub Actions
             maxinterval_value = 200
-            print('Running on GitHub Actions')
             logging.info('Running on GitHub Actions')
         else:
             miniters_value = None    # Для локального запуску
             maxinterval_value = 10
-            print('Running locally')
             logging.info('Running locally')
 
 
@@ -194,7 +193,13 @@ class IgruhaParser:
 
                 title = f"{translated_name} {download_option['info'].replace('от', 'by')}"
 
-                uploadDate = download_option['date'] or date_to_iso(site_update_date)
+
+                if (download_option['date']):
+                    uploadDate = download_option['date']
+                else:
+                    logging.warning(f'Date Not Available in Torrent File. Using page update date')
+                    uploadDate = date_to_iso(site_update_date)
+
 
                 logging.info(f'       {title} / {uploadDate} / {download_option["fileSize"]}')
 
@@ -340,7 +345,8 @@ class IgruhaParser:
                 formatted_date = datetime.fromtimestamp(creation_date).strftime('%Y-%m-%dT%H:%M:%SZ')
             else:
                 # print('Date Not Available in Torrent File')
-                logging.warning(f'Date Not Available in Torrent File')
+                # logging.warning(f'(_torrent_to_magnet) Date Not Available in Torrent File')
+                pass
 
             return magnet_link, formatted_date, total_length
         
