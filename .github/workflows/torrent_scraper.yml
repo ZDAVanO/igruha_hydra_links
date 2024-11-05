@@ -25,7 +25,7 @@ jobs:
 
     - name: Run the script
       run: |
-        python hydra_links_igruha.py
+        python main.py
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
