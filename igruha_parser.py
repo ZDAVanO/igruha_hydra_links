@@ -78,8 +78,17 @@ class IgruhaParser:
         # for index, url in enumerate(urls, start=1):
         #     self.process_url(index, url)
 
+        if os.getenv('GITHUB_ACTIONS') == 'true':
+            mininterval_value = 60  # Для GitHub Actions
+            print('Running on GitHub Actions')
+            logging.info('Running on GitHub Actions')
+        else:
+            mininterval_value = 0.1    # Для локального запуску
+            print('Running locally')
+            logging.info('Running locally')
 
-        for index, url in enumerate(tqdm(urls, desc="Processing pages", unit="page"), start=1):
+
+        for index, url in enumerate(tqdm(urls, desc="Processing pages", unit="page", mininterval=mininterval_value), start=1):
             self.process_url(index, url)  # Ваш метод обробки URL
 
         self._save_cache()
