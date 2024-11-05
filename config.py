@@ -9,7 +9,7 @@ CACHE_FILE = os.path.join(CACHE_DIR, 'parser_cache.json')
 
 BACKUP_DIR = 'json'
 
-DATA_FILE = 'hydra_links_igruha.json'
+DATA_FILE = 'igruha-hydra-links.json'
 
 LOG_FILE = 'parser.log'
 
