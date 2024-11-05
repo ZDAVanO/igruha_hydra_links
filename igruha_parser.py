@@ -79,7 +79,7 @@ class IgruhaParser:
         #     self.process_url(index, url)
 
         if os.getenv('GITHUB_ACTIONS') == 'true':
-            mininterval_value = 60  # Для GitHub Actions
+            mininterval_value = 30  # Для GitHub Actions
             print('Running on GitHub Actions')
             logging.info('Running on GitHub Actions')
         else:
