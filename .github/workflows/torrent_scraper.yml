@@ -32,7 +32,7 @@ jobs:
       with:
         name: scraped-data
         path: |
-          hydra_links_igruha.json
+          igruha-hydra-links.json
           parser.log
           stats_output.txt
           cache/
