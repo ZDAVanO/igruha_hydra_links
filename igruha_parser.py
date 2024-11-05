@@ -64,14 +64,7 @@ class IgruhaParser:
         if urls is None:
             urls = self.get_urls_from_sitemap(self.sitemap_url)
 
-        # print(f"Total URLs: {len(urls)}")
         logging.info(f"Total URLs: {len(urls)}")
-
-
-        # start_time = time.time()
-
-        # for index, url in enumerate(urls, start=1):
-        #     self.process_url(index, url)
 
         if os.getenv('GITHUB_ACTIONS') == 'true':
             miniters_value = 100  # Для GitHub Actions
@@ -92,7 +85,6 @@ class IgruhaParser:
 
         # self.print_stats()
 
-
         with open(self.data_file, 'w', encoding='utf-8') as f:
             json.dump(self.data, f, ensure_ascii=False, indent=4)
         print(f"Data saved in file {self.data_file}")
@@ -108,11 +100,6 @@ class IgruhaParser:
             json.dump(self.data, f, ensure_ascii=False, indent=4)
         print(f"The backup data is saved in file {backup_file_path}")
         logging.info(f"The backup data is saved in file {backup_file_path}")
-
-
-        # end_time = time.time()
-        # print(f'Execution time: {end_time - start_time:.2f} seconds')
-        # logging.info(f'Execution time: {end_time - start_time:.2f} seconds')
 
 
     # MARK: _initialize_cache
@@ -139,7 +126,6 @@ class IgruhaParser:
             response.raise_for_status() # Перевірка статусу відповіді, кине помилку, якщо статус не 200
             sitemap_content = response.content
         except requests.RequestException as e:
-            # print(f"Error connecting to {sitemap_url}: {e}")
             logging.error(f"Error connecting to {sitemap_url}: {e}")
             return []
         
@@ -159,8 +145,6 @@ class IgruhaParser:
 
             # Якщо сторінка не з грою, пропускаємо
             if not site_update_date or not site_game_name:
-
-                # print(f"{index}. (INVALID_PAGE) {url}")
                 logging.info(f"{index}. (INVALID_PAGE) {url}")
 
                 self.stats["invalid_pages"] += 1
@@ -170,16 +154,12 @@ class IgruhaParser:
             cache_entry = self.cache.get(url)
             if cache_entry and cache_entry['site_update_date'] == site_update_date:
 
-                cache_game_page_log = f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}'
-                # print(cache_game_page_log)
-                logging.info(cache_game_page_log)
+                logging.info(f'{index}. (CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}')
 
                 for cached_download in cache_entry["download_options"]:
-                    self.data["downloads"].append(cached_download)
 
-                    cache_dn_option_log = f'       {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}'
-                    # print(cache_dn_option_log)
-                    logging.info(cache_dn_option_log)
+                    self.data["downloads"].append(cached_download)
+                    logging.info(f'       {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}')
 
                 self.stats["download_options"] += len(cache_entry["download_options"])
                 return
@@ -188,24 +168,18 @@ class IgruhaParser:
             download_options = self.parse_download_options(soup)
             # Якщо немає варіантів завантаження, пропускаємо
             if not download_options:
-                game_page_log = f'{index}. (NO_DOWNLOAD_OPTIONS) {site_game_name} / {site_update_date} / {url}'
-                # print(game_page_log)
-                logging.info(game_page_log)
-
+                logging.info(f'{index}. (NO_DOWNLOAD_OPTIONS) {site_game_name} / {site_update_date} / {url}')
                 self.stats["no_download_options"] += 1
                 return
 
 
             if cache_entry:
-                game_page_log = f'{index}. (UPDATED) {site_game_name} / {cache_entry['site_update_date']} -> {site_update_date} / {url}'
+                game_page_log = f'{index}. (UPDATED) {site_game_name} / {cache_entry['site_update_date']} -> {site_update_date} / {url}'   
                 self.stats["updated_games"].append(game_page_log)
             else:
                 game_page_log = f'{index}. (ADDED) {site_game_name} / {site_update_date} / {url}'
                 self.stats["added_games"].append(game_page_log)
-
-            # print(game_page_log)
             logging.info(game_page_log)
-
 
             translated_name = self.translate_text(site_game_name, target_language='en', source_language='ru')
             
@@ -222,11 +196,7 @@ class IgruhaParser:
 
                 uploadDate = download_option['date'] or date_to_iso(site_update_date)
 
-
-                dn_option_log = f'       {title} / {uploadDate} / {download_option["fileSize"]}'
-                # print(dn_option_log)
-                logging.info(dn_option_log)
-
+                logging.info(f'       {title} / {uploadDate} / {download_option["fileSize"]}')
 
                 download_info = {
                     "title": title,
@@ -245,12 +215,10 @@ class IgruhaParser:
 
 
         except requests.RequestException as e:
-            # print(f"{index}. Error connecting to {url}: {e}")
             logging.error(f"{index}. Error connecting to {url}: {e}")
             self.stats["error_connecting"].append(f'{index}. {url}')
             
         except Exception as e:
-            # print(f"{index}. Error processing {url}: {e}")
             logging.error(f"{index}. Error processing {url}: {e}")
             self.stats["error_processing"].append(f'{index}. {url}')
 
@@ -304,7 +272,6 @@ class IgruhaParser:
                     magnet_link, torrent_date, torrent_size_bytes = self._torrent_to_magnet(torrent_bytes.getvalue())
 
                 except requests.RequestException as e:
-                    # print(f"Failed to download {torrent_url}: {e}")
                     logging.error(f"Failed to download {torrent_url}: {e}")
                     magnet_link, torrent_date, torrent_size_bytes = None, None, None
 
@@ -317,7 +284,6 @@ class IgruhaParser:
                     })
 
             except Exception as e:
-                # print(f"Failed to process {torrent['href']}: {e}")
                 logging.error(f"Failed to process {torrent['href']}: {e}")
 
         return torrent_info_list
@@ -376,12 +342,10 @@ class IgruhaParser:
                 # print('Date Not Available in Torrent File')
                 logging.warning(f'Date Not Available in Torrent File')
 
-            # return magnet_link, formatted_date
             return magnet_link, formatted_date, total_length
-
-        except Exception as e:
-            # У випадку будь-якої помилки повертаємо None
-            # print(f'TORRENT_TO_MAGNET_ERROR: {e}')
+        
+        # У випадку будь-якої помилки повертаємо None
+        except Exception as e: 
             logging.error(f'TORRENT_TO_MAGNET_ERROR: {e}')
             return None, None, None
 
