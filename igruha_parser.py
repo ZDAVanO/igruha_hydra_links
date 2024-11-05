@@ -13,21 +13,16 @@ import hashlib
 import base64
 from urllib.parse import quote  # Import the quote function for URL encoding
 
-# import config
 from utils.translator import translate_line
 from utils.format_utils import date_to_iso, format_size
 
-
-
 import logging
-# import time
 
 from tqdm import tqdm
 
 
-
 class IgruhaParser:
-
+    # MARK: __init__
     def __init__(self, site_name, log_file, data_file, backup_dir, cache_dir, cache_file, sitemap_url, test_problem_urls=False, problem_urls=None):
 
         self.site_name = site_name
@@ -63,7 +58,7 @@ class IgruhaParser:
         }
 
 
-
+    # MARK: run
     def run(self, urls=None):
 
         if urls is None:
@@ -120,8 +115,7 @@ class IgruhaParser:
         # logging.info(f'Execution time: {end_time - start_time:.2f} seconds')
 
 
-
-
+    # MARK: _initialize_cache
     def _initialize_cache(self):
         os.makedirs(self.cache_dir, exist_ok=True)
         if os.path.exists(self.cache_file):
@@ -129,6 +123,8 @@ class IgruhaParser:
                 return json.load(file)
         return {}
 
+
+    # MARK: _save_cache
     def _save_cache(self):
         with open(self.cache_file, 'w', encoding='utf-8') as file:
             json.dump(self.cache, file, ensure_ascii=False, indent=4)
@@ -136,7 +132,7 @@ class IgruhaParser:
         logging.info(f"Cache saved to {self.cache_file}")
 
 
-
+    # MARK: get_urls_from_sitemap
     def get_urls_from_sitemap(self, sitemap_url):
         try:
             response = requests.get(sitemap_url)
@@ -153,9 +149,7 @@ class IgruhaParser:
         return [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
 
-
-
-
+    # MARK: process_url
     def process_url(self, index, url):
         try:
             page_response = requests.get(url)
@@ -261,8 +255,7 @@ class IgruhaParser:
             self.stats["error_processing"].append(f'{index}. {url}')
 
 
-
-
+    # MARK: parse_download_options
     def parse_download_options(self, soup):
 
         # Список для збереження результатів
@@ -330,11 +323,7 @@ class IgruhaParser:
         return torrent_info_list
 
 
-
-
-
-
-    # Helper methods for internal use
+    # MARK: _torrent_to_magnet
     def _torrent_to_magnet(self, torrent_bytes):
         try:
             # Декодування метаданих без збереження у файл
@@ -397,7 +386,7 @@ class IgruhaParser:
             return None, None, None
 
 
-
+    # MARK: _parse_size_info
     def _parse_size_info(self, size_text):
         # Шаблон для регулярного виразу
         pattern = r'Размер:\s*([\d.,]+\s*(?:GB|MB|ГБ|МБ|Gb|Mb|Гб|Мб|gb|mb|гб|мб|МВ|МB|Mб))\s*(.*?)(?:\s*\|)?\s*$'
@@ -411,7 +400,7 @@ class IgruhaParser:
             return "N/A", "NO_INFO"  # Якщо не знайдено відповідності
 
 
-
+    # MARK: _parse_date_title
     def _parse_date_title(self, soup):
         # Витягування дати та часу
         site_update_date = None
@@ -432,7 +421,7 @@ class IgruhaParser:
         return site_update_date, site_game_title
 
 
-
+    # MARK: translate_text
     def translate_text(self, text, target_language='en', source_language='ru'):
         # Регулярний вираз для перевірки неанглійських букв
         non_english_pattern = re.compile(r'[^\x00-\x7F]')
@@ -449,10 +438,9 @@ class IgruhaParser:
             result = text 
 
         return result
-    
 
 
-
+    # MARK: print_stats
     def print_stats(self, output_file="stats_output.txt"):
         # Відкриваємо файл для запису
         with open(output_file, "w", encoding="utf-8") as file:
