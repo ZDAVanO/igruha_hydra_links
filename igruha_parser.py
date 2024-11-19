@@ -222,6 +222,19 @@ class IgruhaParser:
         except requests.RequestException as e:
             logging.error(f"{index}. Error connecting to {url}: {e}")
             self.stats["error_connecting"].append(f'{index}. {url}')
+
+            cache_entry = self.cache.get(url)
+            if cache_entry:
+
+                logging.info(f'{index}. (RequestException)(CACHE) {cache_entry["site_game_name"]} / {cache_entry["site_update_date"]} / {url}')
+
+                for cached_download in cache_entry["download_options"]:
+
+                    self.data["downloads"].append(cached_download)
+                    logging.info(f'       {cached_download["title"]} / {cached_download["uploadDate"]} / {cached_download["fileSize"]}')
+
+                self.stats["download_options"] += len(cache_entry["download_options"])
+
             
         except Exception as e:
             logging.error(f"{index}. Error processing {url}: {e}")
