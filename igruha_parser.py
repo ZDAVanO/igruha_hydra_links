@@ -21,6 +21,8 @@ import logging
 from tqdm import tqdm
 
 
+# import cloudscraper
+
 class IgruhaParser:
     # MARK: __init__
     def __init__(self, site_name, log_file, data_file, backup_dir, cache_dir, cache_file, sitemap_url, test_problem_urls=False, problem_urls=None):
@@ -121,7 +123,10 @@ class IgruhaParser:
     # MARK: get_urls_from_sitemap
     def get_urls_from_sitemap(self, sitemap_url):
         try:
+
             response = requests.get(sitemap_url)
+
+
             response.raise_for_status() # Перевірка статусу відповіді, кине помилку, якщо статус не 200
             sitemap_content = response.content
         except requests.RequestException as e:
