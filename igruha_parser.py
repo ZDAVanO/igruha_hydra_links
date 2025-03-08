@@ -21,7 +21,7 @@ import logging
 from tqdm import tqdm
 
 
-# import cloudscraper
+import cloudscraper
 
 class IgruhaParser:
     # MARK: __init__
@@ -59,6 +59,8 @@ class IgruhaParser:
             "error_connecting": [],
             "error_processing": []
         }
+
+        self.scraper = cloudscraper.create_scraper()
 
 
     # MARK: run
@@ -123,11 +125,9 @@ class IgruhaParser:
     # MARK: get_urls_from_sitemap
     def get_urls_from_sitemap(self, sitemap_url):
         try:
+            response = self.scraper.get(sitemap_url)  # Use cloudscraper to get the sitemap
 
-            response = requests.get(sitemap_url)
-
-
-            response.raise_for_status() # Перевірка статусу відповіді, кине помилку, якщо статус не 200
+            response.raise_for_status()  # Check the response status
             sitemap_content = response.content
         except requests.RequestException as e:
             logging.error(f"Error connecting to {sitemap_url}: {e}")
@@ -139,11 +139,16 @@ class IgruhaParser:
         return [elem.text for elem in root.findall('.//ns:loc', namespaces)]
 
 
+    # MARK: get_urls_from_cache
+    def get_urls_from_cache(self):
+        return list(self.cache.keys())
+
+
     # MARK: process_url
     def process_url(self, index, url):
         try:
-            page_response = requests.get(url)
-            page_response.raise_for_status() # викликає помилку, якщо статус не 200
+            page_response = self.scraper.get(url)  # Use cloudscraper to get the page
+            page_response.raise_for_status()  # Check the response status
             soup = BeautifulSoup(page_response.text, 'html.parser')
             site_update_date, site_game_name = self._parse_date_title(soup)
 
@@ -263,7 +268,7 @@ class IgruhaParser:
 
             try:
                 # Отримуємо сторінку завантаження
-                page_response_2 = requests.get(torrent['href'])
+                page_response_2 = self.scraper.get(torrent['href'])  # Use cloudscraper to get the download page
                 page_response_2.raise_for_status()
                 soup_2 = BeautifulSoup(page_response_2.text, 'html.parser')
                 download_page_link = soup_2.find('a', class_='torrent2')
@@ -287,7 +292,7 @@ class IgruhaParser:
                 torrent_url = download_page_link['href']
                 try:
                     # Отримання контенту файлу
-                    response = requests.get(torrent_url)
+                    response = self.scraper.get(torrent_url)  # Use cloudscraper to get the torrent file
                     response.raise_for_status()
                     # Використання BytesIO для зберігання в пам'яті
                     torrent_bytes = BytesIO(response.content)

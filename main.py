@@ -22,6 +22,7 @@ def main():
     if not urls:
         print("Failed to get URL from sitemap.xml")
         return
+        # urls = parser.get_urls_from_cache()
 
     if config.test_problem_urls:
         urls = config.problem_urls
