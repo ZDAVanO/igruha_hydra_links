@@ -11,7 +11,7 @@ import re
 import bencodepy
 import hashlib
 import base64
-from urllib.parse import quote  # Import the quote function for URL encoding
+from urllib.parse import quote
 
 from utils.translator import translate_line
 from utils.format_utils import date_to_iso, format_size
