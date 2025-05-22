@@ -1,7 +1,7 @@
 name: Torrent Scraper
 
 on:
-  schedule:
+  # schedule:
     # - cron: "0 */6 * * *"  # Запуск кожні 6 годин
     # - cron: "0 0 * * *"    # Запуск щодня о 00:00
     # - cron: "0 12 * * *"   # Запуск щодня о 12:00
